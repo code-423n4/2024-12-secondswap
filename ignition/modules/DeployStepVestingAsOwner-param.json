@@ -1,0 +1,11 @@
+{
+  "ERC20": {
+    "name": "Test Token",
+    "symbol": "TT",
+    "initialSupply": "1000000000000000000000000"
+  },
+  "DeployStepVestingAsOwner": {
+    "startTime": 1724207400,
+    "endTime": 1724293800,
+    "numOfSteps": 480
+  }}

@@ -1,0 +1,13 @@
+{
+  "DeployVestingManager#SecondSwap_VestingManager": "0x8F92BF373CA7517eccdbA2d4acC6C99A72cADB86",
+  "DeployWhitelistDeployer#SecondSwap_WhitelistDeployer": "0x213E904161aff36E4E6185034Fed7887aE8f8890",
+  "MarketplaceProxyModule#SecondSwap_Marketplace": "0x177E9fbdd819f40139AE80BbC0050d690C0Bc78a",
+  "VestingDeployerProxyModule#SecondSwap_VestingDeployer": "0x96B438C553E20c5712cEFAB4bC116C765a2a1BB4",
+  "VestingDeployerProxyModule#TransparentUpgradeableProxy": "0xA56559c70eDd9Bb506E3F4F9746F0d785C8CD716",
+  "VestingDeployerProxyModule#proxiedVestingDeployer": "0xA56559c70eDd9Bb506E3F4F9746F0d785C8CD716",
+  "VestingDeployerProxyModule#vestingDeployerProxyAdmin": "0x859C22815be6A815464b2b03D6D2b138D5ae6C4c",
+  "DeployMarketplaceSetting#SecondSwap_MarketplaceSetting": "0x42eC934d6347265Dc23E2084187e875351acB250",
+  "MarketplaceProxyModule#TransparentUpgradeableProxy": "0xd1912539ea9e7E0659Fa10E5e3f65234f429462d",
+  "MarketplaceProxyModule#proxiedMarketplace": "0xd1912539ea9e7E0659Fa10E5e3f65234f429462d",
+  "MarketplaceProxyModule#marketplaceProxyAdmin": "0x9817b667D835c1356191FDF28732fe4A196838Ce"
+}

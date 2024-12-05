@@ -1,0 +1,7 @@
+./contracts/SecondSwap_Marketplace.sol
+./contracts/SecondSwap_MarketplaceSetting.sol
+./contracts/SecondSwap_StepVesting.sol
+./contracts/SecondSwap_VestingDeployer.sol
+./contracts/SecondSwap_VestingManager.sol
+./contracts/SecondSwap_Whitelist.sol
+./contracts/SecondSwap_WhitelistDeployer.sol
