@@ -34,7 +34,6 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 ## Links
 
 - **Previous audits:**  
-- **Documentation:** 
 - **Website:** https://secondswap.io/
 - **X/Twitter:** https://x.com/secondswap_io
 
