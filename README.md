@@ -24,12 +24,8 @@ The 4naly3er report can be found [here](https://github.com/code-423n4/2024-12-se
 
 _Note for C4 wardens: Anything included in this `Automated Findings / Publicly Known Issues` section is considered a publicly known issue and is ineligible for awards._
 
-## 🐺 C4 team: paste this into the bottom of the sponsor's audit repo `README`, then delete this line
-
 - Token issuers are given full control over their vesting contracts, this includes the ability to reallocate locked tokens from users that have bought their allocations from the marketplace.
 - Whitelisting for private lots are done by the users themselves and this can lead to users not being able to purchase the lots because of an attacker whitelisting multiple addresses. 
-
-✅ SCOUTS: Please format the response above 👆 so its not a wall of text and its readable.
 
 # Overview
 
@@ -38,7 +34,6 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 ## Links
 
 - **Previous audits:**  
-  - ✅ SCOUTS: If there are multiple report links, please format them in a list.
 - **Documentation:** 
 - **Website:** https://secondswap.io/
 - **X/Twitter:** https://x.com/secondswap_io
@@ -47,59 +42,42 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 
 # Scope
 
-[ ✅ SCOUTS: add scoping and technical details here ]
-
 ### Files in scope
-- ✅ This should be completed using the `metrics.md` file
-- ✅ Last row of the table should be Total: SLOC
-- ✅ SCOUTS: Have the sponsor review and and confirm in text the details in the section titled "Scoping Q amp; A"
 
-*For sponsors that don't use the scoping tool: list all files in scope in the table below (along with hyperlinks) -- and feel free to add notes to emphasize areas of focus.*
 
-| Contract | SLOC | Purpose | Libraries used |  
-| ----------- | ----------- | ----------- | ----------- |
-| [contracts/folder/sample.sol](https://github.com/code-423n4/repo-name/blob/contracts/folder/sample.sol) | 123 | This contract does XYZ | [`@openzeppelin/*`](https://openzeppelin.com/contracts/) |
+| File   | Logic Contracts | Interfaces | nSLOC | Purpose | Libraries used |
+| ------ | --------------- | ---------- | ----- | -----   | ------------ |
+| /contracts/SecondSwap_Marketplace.sol | 1| **** | 283 | |@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol<br>@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol<br>hardhat/console.sol|
+| /contracts/SecondSwap_MarketplaceSetting.sol | 1| **** | 115 | |@openzeppelin/contracts/token/ERC20/IERC20.sol|
+| /contracts/SecondSwap_StepVesting.sol | 1| **** | 139 | |@openzeppelin/contracts/utils/math/Math.sol<br>@openzeppelin/contracts/token/ERC20/IERC20.sol<br>@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol|
+| /contracts/SecondSwap_VestingDeployer.sol | 1| **** | 89 | |@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol<br>@openzeppelin/contracts/token/ERC20/IERC20.sol|
+| /contracts/SecondSwap_VestingManager.sol | 1| **** | 100 | |@openzeppelin/contracts/access/Ownable.sol<br>@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol<br>hardhat/console.sol|
+| /contracts/SecondSwap_Whitelist.sol | 1| **** | 33 | |@openzeppelin/contracts/access/Ownable.sol<br>@openzeppelin/contracts/token/ERC20/IERC20.sol|
+| /contracts/SecondSwap_WhitelistDeployer.sol | 1| **** | 10 | ||
+| **Totals** | **7** | **** | **769** | | |
 
 ### Files out of scope
-✅ SCOUTS: List files/directories out of scope
+
+*See [out_of_scope.txt](https://github.com/code-423n4/2024-12-secondswap/blob/main/out_of_scope.txt)*
+
+| File         |
+| ------------ |
+| ./contracts/TestToken.sol |
+| ./contracts/USDT.sol |
+| ./contracts/interface/* |
+| Totals: 7 |
 
 ## Scoping Q &amp; A
 
 ### General questions
-### Are there any ERC20's in scope?: Yes
-
-✅ SCOUTS: If the answer above 👆 is "Yes", please add the tokens below 👇 to the table. Otherwise, update the column with "None".
-
-Any (all possible ERC20s)
-
-
-### Are there any ERC777's in scope?: No
-
-✅ SCOUTS: If the answer above 👆 is "Yes", please add the tokens below 👇 to the table. Otherwise, update the column with "None".
-
-
-
-### Are there any ERC721's in scope?: No
-
-✅ SCOUTS: If the answer above 👆 is "Yes", please add the tokens below 👇 to the table. Otherwise, update the column with "None".
-
-
-
-### Are there any ERC1155's in scope?: No
-
-✅ SCOUTS: If the answer above 👆 is "Yes", please add the tokens below 👇 to the table. Otherwise, update the column with "None".
-
-
-
-✅ SCOUTS: Once done populating the table below, please remove all the Q/A data above.
 
 | Question                                | Answer                       |
 | --------------------------------------- | ---------------------------- |
-| ERC20 used by the protocol              |       🖊️             |
+| ERC20 used by the protocol              |       Any (all possible ERC20s)             |
 | Test coverage                           | ✅ SCOUTS: Please populate this after running the test coverage command                          |
-| ERC721 used  by the protocol            |            🖊️              |
-| ERC777 used by the protocol             |           🖊️                |
-| ERC1155 used by the protocol            |              🖊️            |
+| ERC721 used  by the protocol            |            None              |
+| ERC777 used by the protocol             |           None                |
+| ERC1155 used by the protocol            |              None            |
 | Chains the protocol will be deployed on | Ethereum,Base,zkSync,Arbitrum |
 
 ### ERC20 token behaviors in scope
@@ -126,34 +104,22 @@ Any (all possible ERC20s)
 
 ### External integrations (e.g., Uniswap) behavior in scope:
 
-
 | Question                                                  | Answer |
 | --------------------------------------------------------- | ------ |
-| Enabling/disabling fees (e.g. Blur disables/enables fees) | No   |
-| Pausability (e.g. Uniswap pool gets paused)               |  No   |
-| Upgradeability (e.g. Uniswap gets upgraded)               |   No  |
-
+| Enabling/disabling fees (e.g. Blur disables/enables fees) |   No   |
+| Pausability (e.g. Uniswap pool gets paused)               |   No   |
+| Upgradeability (e.g. Uniswap gets upgraded)               |   No   |
 
 ### EIP compliance checklist
 N/A
-
-✅ SCOUTS: Please format the response above 👆 using the template below👇
-
-| Question                                | Answer                       |
-| --------------------------------------- | ---------------------------- |
-| src/Token.sol                           | ERC20, ERC721                |
-| src/NFT.sol                             | ERC721                       |
-
 
 # Additional context
 
 ## Main invariants
 
-- All tokens locked in a vesting plan must be allocated and claimable (with the exception for tokens being transferred in directly)
+- All tokens locked in a vesting plan must be allocated and claimable (with the exception for tokens being transferred in directly).
 - The token issuers must always be able to reallocate vestings.
 - Token issuers are assigned by the SecondSwap admin.
-
-✅ SCOUTS: Please format the response above 👆 so its not a wall of text and its readable.
 
 ## Attack ideas (where to focus for bugs)
 Our primary areas of concerns are around:
@@ -178,33 +144,16 @@ Marketplace
 - Could all variables be set with values that will not cause any DoS or loss of funds?
 - Contract upgradability patterns
 
-
-✅ SCOUTS: Please format the response above 👆 so its not a wall of text and its readable.
-
 ## All trusted roles in the protocol
-
-2S Admin
-- Assign token issuers to tokens
-- Configure marketplace settings
-- Enable and disable marketplace listing for vesting plans
-- Pause and unpause marketplace
-
-Token issuer
-- Deploy vesting plans
-- Reallocate vesting allocations between users
-
-✅ SCOUTS: Please format the response above 👆 using the template below👇
 
 | Role                                | Description                       |
 | --------------------------------------- | ---------------------------- |
-| Owner                          | Has superpowers                |
-| Administrator                             | Can change fees                       |
+| 2S Admin                          | Can:<br>- Assign token issuers to tokens<br>- Configure marketplace settings<br>- Enable and disable marketplace listing for vesting plans<br>- Pause and unpause the marketplace |
+| Token issuer                             | Can deploy vesting plans and reallocate vesting allocations |
 
 ## Describe any novel or unique curve logic or mathematical models implemented in the contracts:
 
 N/A
-
-✅ SCOUTS: Please format the response above 👆 so its not a wall of text and its readable.
 
 ## Running tests
 
@@ -237,37 +186,3 @@ make gas
 Employees of SecondSwap and employees' family members are ineligible to participate in this audit.
 
 Code4rena's rules cannot be overridden by the contents of this README. In case of doubt, please check with C4 staff.
-
-# Scope
-
-*See [scope.txt](https://github.com/code-423n4/2024-12-secondswap/blob/main/scope.txt)*
-
-### Files in scope
-
-
-| File   | Logic Contracts | Interfaces | nSLOC | Purpose | Libraries used |
-| ------ | --------------- | ---------- | ----- | -----   | ------------ |
-| /contracts/SecondSwap_Marketplace.sol | 1| **** | 283 | |@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol<br>@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol<br>hardhat/console.sol|
-| /contracts/SecondSwap_MarketplaceSetting.sol | 1| **** | 115 | |@openzeppelin/contracts/token/ERC20/IERC20.sol|
-| /contracts/SecondSwap_StepVesting.sol | 1| **** | 139 | |@openzeppelin/contracts/utils/math/Math.sol<br>@openzeppelin/contracts/token/ERC20/IERC20.sol<br>@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol|
-| /contracts/SecondSwap_VestingDeployer.sol | 1| **** | 89 | |@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol<br>@openzeppelin/contracts/token/ERC20/IERC20.sol|
-| /contracts/SecondSwap_VestingManager.sol | 1| **** | 100 | |@openzeppelin/contracts/access/Ownable.sol<br>@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol<br>hardhat/console.sol|
-| /contracts/SecondSwap_Whitelist.sol | 1| **** | 33 | |@openzeppelin/contracts/access/Ownable.sol<br>@openzeppelin/contracts/token/ERC20/IERC20.sol|
-| /contracts/SecondSwap_WhitelistDeployer.sol | 1| **** | 10 | ||
-| **Totals** | **7** | **** | **769** | | |
-
-### Files out of scope
-
-*See [out_of_scope.txt](https://github.com/code-423n4/2024-12-secondswap/blob/main/out_of_scope.txt)*
-
-| File         |
-| ------------ |
-| ./contracts/TestToken.sol |
-| ./contracts/USDT.sol |
-| ./contracts/interface/IERC20.sol |
-| ./contracts/interface/SecondSwap_IMarketplaceSetting.sol |
-| ./contracts/interface/SecondSwap_IVestingManager.sol |
-| ./contracts/interface/SecondSwap_IWhitelist.sol |
-| ./contracts/interface/SecondSwap_Vesting.sol |
-| Totals: 7 |
-
