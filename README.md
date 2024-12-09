@@ -75,7 +75,7 @@ Importantly, this secondary trading does not impact the current market prices of
 
 | Question                                | Answer                       |
 | --------------------------------------- | ---------------------------- |
-| ERC20 used by the protocol              |   Any (all possible ERC20s)  |
+| ERC20 used by the protocol              |   As per table below         |
 | Test coverage                           |           74.87%             |
 | ERC721 used  by the protocol            |            None              |
 | ERC777 used by the protocol             |            None              |
