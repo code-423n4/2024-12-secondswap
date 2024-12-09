@@ -159,30 +159,23 @@ N/A
 
 ## Running tests
 
-Steps are included in the git repository
-
-✅ SCOUTS: Please format the response above 👆 using the template below👇
-
 ```bash
-git clone https://github.com/code-423n4/2023-08-arbitrum
-git submodule update --init --recursive
-cd governance
-foundryup
-make install
-make build
-make sc-election-test
+git clone https://github.com/code-423n4/2024-12-secondswap
+cd 2024-12-secondswap
+npm install
+npx hardhat test
 ```
-To run code coverage
+To run code coverage add `viaIR: true,` at `hardhat.config.ts:L62`, then
 ```bash
-make coverage
+SOLIDITY_COVERAGE=true npx hardhat coverage
 ```
 To run gas benchmarks
 ```bash
-make gas
+REPORT_GAS=true npx hardhat test
 ```
 
-✅ SCOUTS: Add a screenshot of your terminal showing the gas report
-✅ SCOUTS: Add a screenshot of your terminal showing the test coverage
+<img width="1063" alt="image" src="https://github.com/user-attachments/assets/bf40e76a-8e59-49c4-baa2-48780b97e23c">
+<img width="863" alt="image" src="https://github.com/user-attachments/assets/d08b818c-da3a-4719-90fb-c5508c38fd3d">
 
 ## Miscellaneous
 Employees of SecondSwap and employees' family members are ineligible to participate in this audit.
