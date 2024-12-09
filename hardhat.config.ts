@@ -28,28 +28,28 @@ const config: HardhatUserConfig = {
 		},
   },
     // These are hardhat node credentials
-    localhost: {
-      url: "http://127.0.0.1:8545/",
-      accounts: [`${process.env.PRIVATE_KEY_SSDeployment}`,
-        `${process.env.PRIVATE_KEY_SSAdmin}`,
-        `${process.env.PRIVATE_KEY_SSDev}`,
-        `${process.env.PRIVATE_KEY_FC}`,
-      ],
-    },
-    sepolia: {
-      blockGasLimit: 3000000000000,
-      url: process.env.ETH_URL,
-      accounts: [`${process.env.PRIVATE_KEY_SSDeployment}`,
-        `${process.env.PRIVATE_KEY_SSAdmin}`,
-        `${process.env.PRIVATE_KEY_SSDev}`,
-        `${process.env.PRIVATE_KEY_FC}`,
-        ],
-      allowUnlimitedContractSize: false,
-      ignition:{
-        maxFeePerGasLimit: 10_000_000_000n,
-        maxPriorityFeePerGas: 3_000_000_000n,
-      }
-    },
+    // localhost: {
+    //   url: "http://127.0.0.1:8545/",
+    //   accounts: [`${process.env.PRIVATE_KEY_SSDeployment}`,
+    //     `${process.env.PRIVATE_KEY_SSAdmin}`,
+    //     `${process.env.PRIVATE_KEY_SSDev}`,
+    //     `${process.env.PRIVATE_KEY_FC}`,
+    //   ],
+    // },
+    // sepolia: {
+    //   blockGasLimit: 3000000000000,
+    //   url: process.env.ETH_URL,
+    //   accounts: [`${process.env.PRIVATE_KEY_SSDeployment}`,
+    //     `${process.env.PRIVATE_KEY_SSAdmin}`,
+    //     `${process.env.PRIVATE_KEY_SSDev}`,
+    //     `${process.env.PRIVATE_KEY_FC}`,
+    //     ],
+    //   allowUnlimitedContractSize: false,
+    //   ignition:{
+    //     maxFeePerGasLimit: 10_000_000_000n,
+    //     maxPriorityFeePerGas: 3_000_000_000n,
+    //   }
+    // },
   },
   solidity: {
     compilers: [
