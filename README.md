@@ -63,10 +63,11 @@ Importantly, this secondary trading does not impact the current market prices of
 
 | File         |
 | ------------ |
+| ./contracts/SecondSwap_Artifact_Testing_Purposes.sol |
 | ./contracts/TestToken.sol |
 | ./contracts/USDT.sol |
 | ./contracts/interface/* |
-| Totals: 7 |
+| Totals: 8 |
 
 ## Scoping Q &amp; A
 
