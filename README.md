@@ -52,12 +52,12 @@ The protocol's architecture is outlined in the diagram below:
 
 | File   | Logic Contracts | Interfaces | nSLOC | Purpose | Libraries used |
 | ------ | --------------- | ---------- | ----- | -----   | ------------ |
-| /contracts/SecondSwap_Marketplace.sol | 1| **** | 283 | |@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol<br>@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol<br>hardhat/console.sol|
+| /contracts/SecondSwap_Marketplace.sol | 1| **** | 283 | |@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol, @openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol, hardhat/console.sol|
 | /contracts/SecondSwap_MarketplaceSetting.sol | 1| **** | 115 | |@openzeppelin/contracts/token/ERC20/IERC20.sol|
-| /contracts/SecondSwap_StepVesting.sol | 1| **** | 139 | |@openzeppelin/contracts/utils/math/Math.sol<br>@openzeppelin/contracts/token/ERC20/IERC20.sol<br>@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol|
-| /contracts/SecondSwap_VestingDeployer.sol | 1| **** | 89 | |@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol<br>@openzeppelin/contracts/token/ERC20/IERC20.sol|
-| /contracts/SecondSwap_VestingManager.sol | 1| **** | 100 | |@openzeppelin/contracts/access/Ownable.sol<br>@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol<br>hardhat/console.sol|
-| /contracts/SecondSwap_Whitelist.sol | 1| **** | 33 | |@openzeppelin/contracts/access/Ownable.sol<br>@openzeppelin/contracts/token/ERC20/IERC20.sol|
+| /contracts/SecondSwap_StepVesting.sol | 1| **** | 139 | |@openzeppelin/contracts/utils/math/Math.sol, @openzeppelin/contracts/token/ERC20/IERC20.sol, @openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol|
+| /contracts/SecondSwap_VestingDeployer.sol | 1| **** | 89 | |@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol, @openzeppelin/contracts/token/ERC20/IERC20.sol|
+| /contracts/SecondSwap_VestingManager.sol | 1| **** | 100 | |@openzeppelin/contracts/access/Ownable.sol, @openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol, hardhat/console.sol|
+| /contracts/SecondSwap_Whitelist.sol | 1| **** | 33 | |@openzeppelin/contracts/access/Ownable.sol, @openzeppelin/contracts/token/ERC20/IERC20.sol|
 | /contracts/SecondSwap_WhitelistDeployer.sol | 1| **** | 10 | ||
 | **Totals** | **7** | **** | **769** | | |
 
@@ -154,7 +154,7 @@ Marketplace
 
 | Role                                | Description                       |
 | --------------------------------------- | ---------------------------- |
-| 2S Admin                          | Can:<br>- Assign token issuers to tokens<br>- Configure marketplace settings<br>- Enable and disable marketplace listing for vesting plans<br>- Pause and unpause the marketplace |
+| 2S Admin                          | Can: - Assign token issuers to tokens, Configure marketplace settings, Enable and disable marketplace listing for vesting plans, Pause and unpause the marketplace |
 | Token issuer                             | Can deploy vesting plans and reallocate vesting allocations |
 
 ## Describe any novel or unique curve logic or mathematical models implemented in the contracts:
