@@ -29,7 +29,9 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 
 # Overview
 
-[ ⭐️ SPONSORS: add info here ]
+SecondSwap addresses the need for a secondary market where locked tokens can be traded offering Sellers an opportunity to get liquidity, at a discount or premium, while allowing opportunistic or higher conviction Buyers to capitalize on future upside.  In addition, Token Issuers have more control and are incentivised to facilitate transactions because they benefit by earning fees for every successful transaction.
+
+Importantly, this secondary trading does not impact the current market prices of the token, nor does it change the vesting plan, due to the fact that the token or its derivative is not the subject of the current transactions. Rather, the platform facilitates the change in the original whitelisted wallet address (Seller) to a new whitelisted wallet address (Buyer) where the unlocked tokens will be transferred by the project in the future. This process is executed without interfering with the existing liquidity pools where the tokens are actively traded. At present this need is addressed primarily through opaque and inefficient Over-the-Counter (OTC) transactions with varying degrees of counterparty risks.
 
 ## Links
 
