@@ -35,7 +35,7 @@ Importantly, this secondary trading does not impact the current market prices of
 
 ## Links
 
-- **Previous audits:** a report is currently being finalized by Zellic and will be made available within 24h of contest start.
+- **Previous audits:** a report is currently being finalized by Zellic and will be made available within 48h of contest start.
 - **Website:** https://secondswap.io/
 - **X/Twitter:** https://x.com/secondswap_io
 
