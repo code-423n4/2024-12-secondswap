@@ -178,8 +178,8 @@ To run gas benchmarks
 REPORT_GAS=true npx hardhat test
 ```
 
-![img](https://github.com/user-attachments/assets/bf40e76a-8e59-49c4-baa2-48780b97e23c)
-![img](https://github.com/user-attachments/assets/d08b818c-da3a-4719-90fb-c5508c38fd3d)
+![img](https://github.com/code-423n4/2024-12-secondswap/blob/main/gas.png?raw=true)
+![img](https://github.com/code-423n4/2024-12-secondswap/blob/main/coverage.png?raw=true)
 
 ## Miscellaneous
 Employees of SecondSwap and employees' family members are ineligible to participate in this audit.
