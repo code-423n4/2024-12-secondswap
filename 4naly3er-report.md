@@ -33,7 +33,7 @@ File: SecondSwap_StepVesting.sol
 296:             _vestings[_beneficiary].totalAmount += _totalAmount;
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_StepVesting.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_StepVesting.sol)
 
 ```solidity
 File: SecondSwap_VestingManager.sol
@@ -45,7 +45,7 @@ File: SecondSwap_VestingManager.sol
 162:         allocations[buyer][vesting].bought += amount;
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingManager.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingManager.sol)
 
 ### <a name="GAS-2"></a>[GAS-2] Comparing to a Boolean constant
 Comparing to a constant (`true` or `false`) is a bit more expensive than directly checking the returned boolean value.
@@ -59,7 +59,7 @@ File: SecondSwap_Whitelist.sol
 59:         require(userSettings[msg.sender] == false, "SS_Whitelist: User is whitelisted"); //3.9. Improper comparison in whitelistAddress function
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Whitelist.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Whitelist.sol)
 
 ### <a name="GAS-3"></a>[GAS-3] Using bools for storage incurs overhead
 Use uint256(1) and uint256(2) for true/false to avoid a Gwarmaccess (100 gas), and to avoid Gsset (20000 gas) when changing from ‘false’ to ‘true’, after having been ‘true’ in the past. See [source](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/58f635312aa21f947cae5f8578638a85aa2519f5/contracts/security/ReentrancyGuard.sol#L23-L27).
@@ -71,7 +71,7 @@ File: SecondSwap_Marketplace.sol
 106:     mapping(address => bool) public isTokenSupport;
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ```solidity
 File: SecondSwap_MarketplaceSetting.sol
@@ -79,7 +79,7 @@ File: SecondSwap_MarketplaceSetting.sol
 44:     bool public isMarketplaceFreeze;
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_MarketplaceSetting.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_MarketplaceSetting.sol)
 
 ```solidity
 File: SecondSwap_Whitelist.sol
@@ -87,7 +87,7 @@ File: SecondSwap_Whitelist.sol
 25:     mapping(address => bool) public userSettings;
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Whitelist.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Whitelist.sol)
 
 ### <a name="GAS-4"></a>[GAS-4] Cache array length outside of loop
 If not cached, the solidity compiler will always read the length of the array during each iteration. That is, if it is a storage array, this is an extra sload operation (100 additional extra gas for each iteration except for the first) and if it is a memory array, this is an extra mload operation (3 additional gas for each iteration except for the first).
@@ -99,7 +99,7 @@ File: SecondSwap_StepVesting.sol
 264:         for (uint256 i = 0; i < _beneficiaries.length; i++) {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_StepVesting.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_StepVesting.sol)
 
 ```solidity
 File: SecondSwap_VestingDeployer.sol
@@ -107,7 +107,7 @@ File: SecondSwap_VestingDeployer.sol
 203:         for (uint256 i = 0; i < _beneficiaries.length; i++) {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingDeployer.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingDeployer.sol)
 
 ### <a name="GAS-5"></a>[GAS-5] For Operations that will not overflow, you could use unchecked
 
@@ -200,7 +200,7 @@ File: SecondSwap_Marketplace.sol
 530:         listing.balance -= _amount;
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ```solidity
 File: SecondSwap_MarketplaceSetting.sol
@@ -216,7 +216,7 @@ File: SecondSwap_MarketplaceSetting.sol
 143:         sellerFee = 250; // 2.5% fee
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_MarketplaceSetting.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_MarketplaceSetting.sol)
 
 ```solidity
 File: SecondSwap_StepVesting.sol
@@ -272,7 +272,7 @@ File: SecondSwap_StepVesting.sol
 300:                     (numOfSteps - _vestings[_beneficiary].stepsClaimed);
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_StepVesting.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_StepVesting.sol)
 
 ```solidity
 File: SecondSwap_VestingDeployer.sol
@@ -296,7 +296,7 @@ File: SecondSwap_VestingDeployer.sol
 228:         ); // 3.2. Arbitrary transfer of vesting
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingDeployer.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingDeployer.sol)
 
 ```solidity
 File: SecondSwap_VestingManager.sol
@@ -334,7 +334,7 @@ File: SecondSwap_VestingManager.sol
 237:         require(_fee >= -1 && _fee <= 5000, "SS_VestingManager: Seller fee cannot be less than 0");
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingManager.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingManager.sol)
 
 ```solidity
 File: SecondSwap_Whitelist.sol
@@ -352,7 +352,7 @@ File: SecondSwap_Whitelist.sol
 62:         totalWhitelist++;
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Whitelist.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Whitelist.sol)
 
 ```solidity
 File: SecondSwap_WhitelistDeployer.sol
@@ -360,7 +360,7 @@ File: SecondSwap_WhitelistDeployer.sol
 4: import "./SecondSwap_Whitelist.sol";
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_WhitelistDeployer.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_WhitelistDeployer.sol)
 
 ### <a name="GAS-6"></a>[GAS-6] Use Custom Errors instead of Revert Strings to save Gas
 Custom errors are available from solidity version 0.8.4. Custom errors save [**~50 gas**](https://gist.github.com/IllIllI000/ad1bd0d29a0101b25e57c293b4b0c746) each time they're hit by [avoiding having to allocate and store the revert string](https://blog.soliditylang.org/2021/04/21/custom-errors/#errors-in-depth). Not defining the strings also save deployment gas
@@ -406,7 +406,7 @@ File: SecondSwap_Marketplace.sol
 562:         require(_marketplaceSetting != address(0), "SS_Marketplace: Address cannot be null");
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ```solidity
 File: SecondSwap_MarketplaceSetting.sol
@@ -444,7 +444,7 @@ File: SecondSwap_MarketplaceSetting.sol
 286:         require(_vestingManager != address(0), "SS_Marketplace_Settings: Cannot be zero address");
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_MarketplaceSetting.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_MarketplaceSetting.sol)
 
 ```solidity
 File: SecondSwap_StepVesting.sol
@@ -466,7 +466,7 @@ File: SecondSwap_StepVesting.sol
 286:         require(_totalAmount > 0, "SS_StepVesting: total amount is zero");
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_StepVesting.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_StepVesting.sol)
 
 ```solidity
 File: SecondSwap_VestingDeployer.sol
@@ -490,7 +490,7 @@ File: SecondSwap_VestingDeployer.sol
 164:         require(s2Admin != _admin, "SS_VestingDeployer: Cannot assign the same address");
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingDeployer.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingDeployer.sol)
 
 ```solidity
 File: SecondSwap_VestingManager.sol
@@ -516,7 +516,7 @@ File: SecondSwap_VestingManager.sol
 248:         require(_vestingDeployer != vestingDeployer, "SS_VestingManager: VestingDeployer cannot be the same");
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingManager.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingManager.sol)
 
 ```solidity
 File: SecondSwap_Whitelist.sol
@@ -528,7 +528,7 @@ File: SecondSwap_Whitelist.sol
 84:         require(msg.sender == lotOwner, "SS_Whitelist: not lot owner");
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Whitelist.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Whitelist.sol)
 
 ### <a name="GAS-7"></a>[GAS-7] Avoid contract existence checks by using low level calls
 Prior to 0.8.10 the compiler inserted extra code, including `EXTCODESIZE` (**100 gas**), to check for contract existence for external function calls. In more recent solidity versions, the compiler will not insert these checks if the external call has a return value. Similar behavior can be achieved in earlier versions by using low-level calls, since low level calls never check for contract existence
@@ -540,7 +540,7 @@ File: SecondSwap_Marketplace.sol
 351:                     (IMarketplaceSetting(marketplaceSetting).usdt()).balanceOf(msg.sender) >=
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ### <a name="GAS-8"></a>[GAS-8] Functions guaranteed to revert when called by normal users can be marked `payable`
 If a function modifier such as `onlyOwner` is used, the function will revert if a normal user tries to pay the function. Marking the function as `payable` will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided.
@@ -568,7 +568,7 @@ File: SecondSwap_MarketplaceSetting.sol
 285:     function setManager(address _vestingManager) external onlyAdmin {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_MarketplaceSetting.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_MarketplaceSetting.sol)
 
 ```solidity
 File: SecondSwap_VestingDeployer.sol
@@ -580,7 +580,7 @@ File: SecondSwap_VestingDeployer.sol
 163:     function setAdmin(address _admin) external onlyAdmin {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingDeployer.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingDeployer.sol)
 
 ```solidity
 File: SecondSwap_VestingManager.sol
@@ -604,7 +604,7 @@ File: SecondSwap_VestingManager.sol
 262:     function getVestingTokenAddress(address _vestingPlan) external view onlyMarketplace returns (address _token) {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingManager.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingManager.sol)
 
 ### <a name="GAS-9"></a>[GAS-9] `++i` costs less gas compared to `i++` or `i += 1` (same for `--i` vs `i--` or `i -= 1`)
 Pre-increments and pre-decrements are cheaper.
@@ -652,7 +652,7 @@ File: SecondSwap_StepVesting.sol
 264:         for (uint256 i = 0; i < _beneficiaries.length; i++) {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_StepVesting.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_StepVesting.sol)
 
 ```solidity
 File: SecondSwap_VestingDeployer.sol
@@ -660,7 +660,7 @@ File: SecondSwap_VestingDeployer.sol
 203:         for (uint256 i = 0; i < _beneficiaries.length; i++) {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingDeployer.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingDeployer.sol)
 
 ```solidity
 File: SecondSwap_Whitelist.sol
@@ -668,7 +668,7 @@ File: SecondSwap_Whitelist.sol
 62:         totalWhitelist++;
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Whitelist.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Whitelist.sol)
 
 ### <a name="GAS-10"></a>[GAS-10] Using `private` rather than `public` for constants, saves gas
 If needed, the values can be read from the verified contract source code, or if there are multiple values there can be a single getter function that [returns a tuple](https://github.com/code-423n4/2022-08-frax/blob/90f55a9ce4e25bceed3a74290b854341d8de6afa/src/contracts/FraxlendPair.sol#L156-L178) of the values of all currently-public constants. Saves **3406-3606 gas** in deployment gas due to the compiler not having to create non-payable getter functions for deployment calldata, not having to store the bytes of the value outside of where it's used, and not adding another entry to the method ID table
@@ -680,7 +680,7 @@ File: SecondSwap_Marketplace.sol
 112:     uint256 public constant BASE = 10000;
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ### <a name="GAS-11"></a>[GAS-11] Splitting require() statements that use && saves gas
 
@@ -693,7 +693,7 @@ File: SecondSwap_VestingManager.sol
 237:         require(_fee >= -1 && _fee <= 5000, "SS_VestingManager: Seller fee cannot be less than 0");
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingManager.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingManager.sol)
 
 ### <a name="GAS-12"></a>[GAS-12] Increments/decrements can be unchecked in for-loops
 In Solidity 0.8+, there's a default overflow check on unsigned integers. It's possible to uncheck this in for-loops and save some gas at each iteration, but at the cost of some code readability, as this uncheck cannot be made inline.
@@ -723,7 +723,7 @@ File: SecondSwap_StepVesting.sol
 264:         for (uint256 i = 0; i < _beneficiaries.length; i++) {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_StepVesting.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_StepVesting.sol)
 
 ```solidity
 File: SecondSwap_VestingDeployer.sol
@@ -731,7 +731,7 @@ File: SecondSwap_VestingDeployer.sol
 203:         for (uint256 i = 0; i < _beneficiaries.length; i++) {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingDeployer.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingDeployer.sol)
 
 ### <a name="GAS-13"></a>[GAS-13] Use != 0 instead of > 0 for unsigned integer comparison
 
@@ -754,7 +754,7 @@ File: SecondSwap_Marketplace.sol
 471:         require(baseAmount > 0, "SS_Marketplace: Amount too little"); // 3.1. Rounding issue leads to total drain of vesting entries
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ```solidity
 File: SecondSwap_MarketplaceSetting.sol
@@ -766,7 +766,7 @@ File: SecondSwap_MarketplaceSetting.sol
 257:         require(_percentage > 0, "SS_Marketplace_Settings: Percentage value cannot be 0");
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_MarketplaceSetting.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_MarketplaceSetting.sol)
 
 ```solidity
 File: SecondSwap_StepVesting.sol
@@ -778,7 +778,7 @@ File: SecondSwap_StepVesting.sol
 286:         require(_totalAmount > 0, "SS_StepVesting: total amount is zero");
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_StepVesting.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_StepVesting.sol)
 
 ```solidity
 File: SecondSwap_VestingDeployer.sol
@@ -786,7 +786,7 @@ File: SecondSwap_VestingDeployer.sol
 116:         require(steps > 0, "SS_VestingDeployer: steps must be greater than 0");
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingDeployer.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingDeployer.sol)
 
 
 ## Non Critical Issues
@@ -820,7 +820,7 @@ File: SecondSwap_Marketplace.sol
 326:         (bool success, ) = target.staticcall(abi.encodeWithSelector(selector));
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ### <a name="NC-2"></a>[NC-2] `constant`s should be defined rather than using magic numbers
 Even [assembly](https://github.com/code-423n4/2022-05-opensea-seaport/blob/9d7ce4d08bf3c3010304a0476a785c70c0e90ae7/contracts/lib/TokenTransferrer.sol#L35-L39) can benefit from using readable constants instead of hex/numeric literals
@@ -834,7 +834,7 @@ File: SecondSwap_Marketplace.sol
 461:                 10 **
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ```solidity
 File: SecondSwap_MarketplaceSetting.sol
@@ -856,7 +856,7 @@ File: SecondSwap_MarketplaceSetting.sol
 258:         require(_percentage <= 10000, "SS_Marketplace_Settings: Percentage cannot be more than 100%");
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_MarketplaceSetting.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_MarketplaceSetting.sol)
 
 ```solidity
 File: SecondSwap_VestingManager.sol
@@ -870,7 +870,7 @@ File: SecondSwap_VestingManager.sol
 237:         require(_fee >= -1 && _fee <= 5000, "SS_VestingManager: Seller fee cannot be less than 0");
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingManager.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingManager.sol)
 
 ### <a name="NC-3"></a>[NC-3] Control structures do not follow the Solidity Style Guide
 See the [control structures](https://docs.soliditylang.org/en/latest/style-guide.html#control-structures) section of the Solidity Style Guide
@@ -884,7 +884,7 @@ File: SecondSwap_Marketplace.sol
 357:                     IMarketplaceSetting(marketplaceSetting).feeCollector(), // 3.7. Value difference caused by the same penalty fee
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ### <a name="NC-4"></a>[NC-4] Critical Changes Should Use Two-step Procedure
 The critical procedures should be two step process.
@@ -904,7 +904,7 @@ File: SecondSwap_VestingDeployer.sol
 163:     function setAdmin(address _admin) external onlyAdmin {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingDeployer.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingDeployer.sol)
 
 ```solidity
 File: SecondSwap_VestingManager.sol
@@ -912,7 +912,7 @@ File: SecondSwap_VestingManager.sol
 212:     function setAdmin(address _admin) external onlyAdmin {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingManager.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingManager.sol)
 
 ### <a name="NC-5"></a>[NC-5] Default Visibility for constants
 Some constants are using the default visibility. For readability, consider explicitly declaring them as `internal`.
@@ -924,7 +924,7 @@ File: SecondSwap_VestingManager.sol
 84:     uint256 constant BASE = 10000;
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingManager.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingManager.sol)
 
 ### <a name="NC-6"></a>[NC-6] Delete rogue `console.log` imports
 These shouldn't be deployed in production
@@ -936,7 +936,7 @@ File: SecondSwap_Marketplace.sol
 10: import "hardhat/console.sol";
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ```solidity
 File: SecondSwap_VestingManager.sol
@@ -944,7 +944,7 @@ File: SecondSwap_VestingManager.sol
 9: import "hardhat/console.sol";
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingManager.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingManager.sol)
 
 ### <a name="NC-7"></a>[NC-7] Functions should not be longer than 50 lines
 Overly complex code can make understanding functionality more difficult, try to further modularize your code to ensure readability 
@@ -970,7 +970,7 @@ File: SecondSwap_Marketplace.sol
 571:     function version() public pure returns (string memory) {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ```solidity
 File: SecondSwap_MarketplaceSetting.sol
@@ -996,7 +996,7 @@ File: SecondSwap_MarketplaceSetting.sol
 301:     function getVestingFees(address _vesting) public view returns (int256 VPbuyerFee, int256 VPsellerFee) {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_MarketplaceSetting.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_MarketplaceSetting.sol)
 
 ```solidity
 File: SecondSwap_StepVesting.sol
@@ -1014,7 +1014,7 @@ File: SecondSwap_StepVesting.sol
 260:     function createVestings(address[] memory _beneficiaries, uint256[] memory _totalAmounts) external {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_StepVesting.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_StepVesting.sol)
 
 ```solidity
 File: SecondSwap_VestingDeployer.sol
@@ -1032,7 +1032,7 @@ File: SecondSwap_VestingDeployer.sol
 237:     function version() public pure returns (string memory) {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingDeployer.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingDeployer.sol)
 
 ```solidity
 File: SecondSwap_VestingManager.sol
@@ -1064,7 +1064,7 @@ File: SecondSwap_VestingManager.sol
 262:     function getVestingTokenAddress(address _vestingPlan) external view onlyMarketplace returns (address _token) {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingManager.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingManager.sol)
 
 ```solidity
 File: SecondSwap_Whitelist.sol
@@ -1074,7 +1074,7 @@ File: SecondSwap_Whitelist.sol
 83:     function setMaxWhitelist(uint256 _maxWhitelist) external {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Whitelist.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Whitelist.sol)
 
 ```solidity
 File: SecondSwap_WhitelistDeployer.sol
@@ -1082,7 +1082,7 @@ File: SecondSwap_WhitelistDeployer.sol
 26:     function deployWhitelist(uint256 _maxWhitelist, address _lotOwner) external returns (address) {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_WhitelistDeployer.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_WhitelistDeployer.sol)
 
 ### <a name="NC-8"></a>[NC-8] Lines are too long
 Usually lines in source code are limited to [80](https://softwareengineering.stackexchange.com/questions/148677/why-is-80-characters-the-standard-limit-for-code-width) characters. Today's screens are much larger so it's reasonable to stretch this in some cases. Since the files will most likely reside in GitHub, and GitHub starts using a scroll bar in all cases when the length is over [164](https://github.com/aizatto/character-length) characters, the lines below should be split when they reach that length
@@ -1094,7 +1094,7 @@ File: SecondSwap_Marketplace.sol
 476:         IERC20(listing.currency).safeTransferFrom(msg.sender, address(this), (baseAmount + buyerFeeTotal)); //  3.6. DOS caused by the use of transfer and transferFrom functions
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ### <a name="NC-9"></a>[NC-9] Use a `modifier` instead of a `require/if` statement for a special `msg.sender` actor
 If a function is supposed to be access-controlled, a `modifier` should be used instead of a `require/if` statement for more readability.
@@ -1112,7 +1112,7 @@ File: SecondSwap_Marketplace.sol
 561:         require(msg.sender == IMarketplaceSetting(marketplaceSetting).s2Admin(), "SS_Marketplace: Unauthorized user");
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ```solidity
 File: SecondSwap_MarketplaceSetting.sol
@@ -1122,7 +1122,7 @@ File: SecondSwap_MarketplaceSetting.sol
 232:         require(msg.sender == s2Admin, "SS_Marketplace_Settings: Unauthorized Access");
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_MarketplaceSetting.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_MarketplaceSetting.sol)
 
 ```solidity
 File: SecondSwap_StepVesting.sol
@@ -1132,7 +1132,7 @@ File: SecondSwap_StepVesting.sol
 261:         require(msg.sender == tokenIssuer || msg.sender == manager || msg.sender == vestingDeployer, "unauthorized");
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_StepVesting.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_StepVesting.sol)
 
 ```solidity
 File: SecondSwap_VestingDeployer.sol
@@ -1142,7 +1142,7 @@ File: SecondSwap_VestingDeployer.sol
 111:         require(_tokenOwner[msg.sender] == tokenAddress, "SS_VestingDeployer: caller is not the token owner");
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingDeployer.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingDeployer.sol)
 
 ```solidity
 File: SecondSwap_VestingManager.sol
@@ -1156,7 +1156,7 @@ File: SecondSwap_VestingManager.sol
 195:         require(SecondSwap_StepVesting(vesting).tokenIssuer() == msg.sender, "SS_VestingManager: Invalid Token Issuer");
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingManager.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingManager.sol)
 
 ```solidity
 File: SecondSwap_Whitelist.sol
@@ -1166,7 +1166,7 @@ File: SecondSwap_Whitelist.sol
 84:         require(msg.sender == lotOwner, "SS_Whitelist: not lot owner");
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Whitelist.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Whitelist.sol)
 
 ### <a name="NC-10"></a>[NC-10] Consider using named mappings
 Consider moving to solidity version 0.8.18 or later, and using [named mappings](https://ethereum.stackexchange.com/questions/51629/how-to-name-the-arguments-in-mapping/145555#145555) to make it easier to understand the purpose of each mapping
@@ -1182,7 +1182,7 @@ File: SecondSwap_Marketplace.sol
 106:     mapping(address => bool) public isTokenSupport;
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ```solidity
 File: SecondSwap_StepVesting.sol
@@ -1190,7 +1190,7 @@ File: SecondSwap_StepVesting.sol
 81:     mapping(address => Vesting) public _vestings;
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_StepVesting.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_StepVesting.sol)
 
 ```solidity
 File: SecondSwap_VestingDeployer.sol
@@ -1198,7 +1198,7 @@ File: SecondSwap_VestingDeployer.sol
 64:     mapping(address => address) public _tokenOwner;
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingDeployer.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingDeployer.sol)
 
 ```solidity
 File: SecondSwap_VestingManager.sol
@@ -1208,7 +1208,7 @@ File: SecondSwap_VestingManager.sol
 64:     mapping(address => mapping(address => Allocation)) public allocations;
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingManager.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingManager.sol)
 
 ```solidity
 File: SecondSwap_Whitelist.sol
@@ -1216,7 +1216,7 @@ File: SecondSwap_Whitelist.sol
 25:     mapping(address => bool) public userSettings;
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Whitelist.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Whitelist.sol)
 
 ### <a name="NC-11"></a>[NC-11] Avoid the use of sensitive terms
 Use [alternative variants](https://www.zdnet.com/article/mysql-drops-master-slave-and-blacklist-whitelist-terminology/), e.g. allowlist/denylist instead of whitelist/blacklist
@@ -1258,7 +1258,7 @@ File: SecondSwap_Marketplace.sol
 479:         if (_referral != address(0) && listing.whitelist == address(0)) {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ```solidity
 File: SecondSwap_MarketplaceSetting.sol
@@ -1280,7 +1280,7 @@ File: SecondSwap_MarketplaceSetting.sol
 275:         whitelistDeployer = _whitelistDeployer;
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_MarketplaceSetting.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_MarketplaceSetting.sol)
 
 ```solidity
 File: SecondSwap_Whitelist.sol
@@ -1328,7 +1328,7 @@ File: SecondSwap_Whitelist.sol
 95:         emit ChangeMaxWhitelist(totalWhitelist, maxWhitelist);
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Whitelist.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Whitelist.sol)
 
 ```solidity
 File: SecondSwap_WhitelistDeployer.sol
@@ -1348,7 +1348,7 @@ File: SecondSwap_WhitelistDeployer.sol
 29:         return newWhitelist;
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_WhitelistDeployer.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_WhitelistDeployer.sol)
 
 ### <a name="NC-12"></a>[NC-12] Use Underscores for Number Literals (add an underscore every 3 digits)
 
@@ -1359,7 +1359,7 @@ File: SecondSwap_Marketplace.sol
 112:     uint256 public constant BASE = 10000;
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ```solidity
 File: SecondSwap_MarketplaceSetting.sol
@@ -1373,7 +1373,7 @@ File: SecondSwap_MarketplaceSetting.sol
 258:         require(_percentage <= 10000, "SS_Marketplace_Settings: Percentage cannot be more than 100%");
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_MarketplaceSetting.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_MarketplaceSetting.sol)
 
 ```solidity
 File: SecondSwap_VestingManager.sol
@@ -1389,7 +1389,7 @@ File: SecondSwap_VestingManager.sol
 237:         require(_fee >= -1 && _fee <= 5000, "SS_VestingManager: Seller fee cannot be less than 0");
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingManager.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingManager.sol)
 
 ### <a name="NC-13"></a>[NC-13] Variables need not be initialized to zero
 The default value for variables is zero, so initializing them to zero is superfluous.
@@ -1401,7 +1401,7 @@ File: SecondSwap_Marketplace.sol
 346:         uint256 _penaltyFee = 0;
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ```solidity
 File: SecondSwap_StepVesting.sol
@@ -1409,7 +1409,7 @@ File: SecondSwap_StepVesting.sol
 264:         for (uint256 i = 0; i < _beneficiaries.length; i++) {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_StepVesting.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_StepVesting.sol)
 
 ```solidity
 File: SecondSwap_VestingDeployer.sol
@@ -1417,7 +1417,7 @@ File: SecondSwap_VestingDeployer.sol
 203:         for (uint256 i = 0; i < _beneficiaries.length; i++) {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingDeployer.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingDeployer.sol)
 
 
 ## Low Issues
@@ -1446,7 +1446,7 @@ File: SecondSwap_Marketplace.sol
 468:                         ).decimals()
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ### <a name="L-2"></a>[L-2] Division by zero not prevented
 The divisions below take an input parameter which does not have any zero-value checks, which may lead to the functions reverting when zero is passed.
@@ -1458,7 +1458,7 @@ File: SecondSwap_Marketplace.sol
 417:             discountedPrice = (discountedPrice * (BASE - ((_amount * listing.discountPct) / listing.total))) / BASE;
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ```solidity
 File: SecondSwap_StepVesting.sol
@@ -1472,7 +1472,7 @@ File: SecondSwap_StepVesting.sol
 292:                 releaseRate: _totalAmount / (numOfSteps - _stepsClaimed),
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_StepVesting.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_StepVesting.sol)
 
 ### <a name="L-3"></a>[L-3] Initializers could be front-run
 Initializers could be front-run, allowing an attacker to either set their own values, take ownership of the contract, and in the best case forcing a re-deployment
@@ -1484,7 +1484,7 @@ File: SecondSwap_Marketplace.sol
 180:     function initialize(address _token, address _marketplaceSetting) public initializer {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ```solidity
 File: SecondSwap_VestingDeployer.sol
@@ -1492,7 +1492,7 @@ File: SecondSwap_VestingDeployer.sol
 77:     function initialize(address _s2Admin, address _manager) public initializer {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingDeployer.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingDeployer.sol)
 
 ```solidity
 File: SecondSwap_VestingManager.sol
@@ -1500,7 +1500,7 @@ File: SecondSwap_VestingManager.sol
 107:     function initialize(address _s2admin) public initializer {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingManager.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingManager.sol)
 
 ### <a name="L-4"></a>[L-4] Signature use at deadlines should be allowed
 According to [EIP-2612](https://github.com/ethereum/EIPs/blob/71dc97318013bf2ac572ab63fab530ac9ef419ca/EIPS/eip-2612.md?plain=1#L58), signatures used on exactly the deadline timestamp are supposed to be allowed. While the signature may or may not be used for the exact EIP-2612 use case (transfer approvals), for consistency's sake, all deadlines should follow this semantic. If the timestamp is an expiration rather than a deadline, consider whether it makes more sense to include the expiration timestamp as a valid timestamp, as is done for deadlines.
@@ -1512,7 +1512,7 @@ File: SecondSwap_Marketplace.sol
 349:             if ((listing.listTime + IMarketplaceSetting(marketplaceSetting).minListingDuration()) > block.timestamp) {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ### <a name="L-5"></a>[L-5] Possible rounding issue
 Division by large numbers may result in the result being zero, due to solidity not supporting fractions. Consider requiring a minimum amount for the numerator to ensure that it is always larger than the denominator. Also, there is indication of multiplication and division without the use of parenthesis which could result in issues.
@@ -1524,7 +1524,7 @@ File: SecondSwap_Marketplace.sol
 417:             discountedPrice = (discountedPrice * (BASE - ((_amount * listing.discountPct) / listing.total))) / BASE;
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ### <a name="L-6"></a>[L-6] Loss of precision
 Division by large numbers may result in the result being zero, due to solidity not supporting fractions. Consider requiring a minimum amount for the numerator to ensure that it is always larger than the denominator
@@ -1542,7 +1542,7 @@ File: SecondSwap_Marketplace.sol
 474:         sellerFeeTotal = (baseAmount * sfee) / BASE;
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ### <a name="L-7"></a>[L-7] Use `Ownable2Step.transferOwnership` instead of `Ownable.transferOwnership`
 Use [Ownable2Step.transferOwnership](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable2Step.sol) which is safer. Use it as it is more secure due to 2-stage ownership transfer.
@@ -1566,7 +1566,7 @@ File: SecondSwap_VestingManager.sol
 7: import "@openzeppelin/contracts/access/Ownable.sol";
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingManager.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingManager.sol)
 
 ```solidity
 File: SecondSwap_Whitelist.sol
@@ -1574,7 +1574,7 @@ File: SecondSwap_Whitelist.sol
 5: import "@openzeppelin/contracts/access/Ownable.sol";
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Whitelist.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Whitelist.sol)
 
 ### <a name="L-8"></a>[L-8] Upgradeable contract is missing a `__gap[50]` storage variable to allow for new storage variables in later versions
 See [this](https://docs.openzeppelin.com/contracts/4.x/upgradeable#storage_gaps) link for a description of this storage variable. While some contracts may not currently be sub-classed, adding the variable now protects against forgetting to add it in the future.
@@ -1586,7 +1586,7 @@ File: SecondSwap_Marketplace.sol
 4: import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ```solidity
 File: SecondSwap_VestingDeployer.sol
@@ -1594,7 +1594,7 @@ File: SecondSwap_VestingDeployer.sol
 6: import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingDeployer.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingDeployer.sol)
 
 ```solidity
 File: SecondSwap_VestingManager.sol
@@ -1602,7 +1602,7 @@ File: SecondSwap_VestingManager.sol
 8: import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingManager.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingManager.sol)
 
 ### <a name="L-9"></a>[L-9] Upgradeable contract not initialized
 Upgradeable contracts are initialized via an initializer function rather than by a constructor. Leaving such a contract uninitialized may lead to it being taken over by a malicious user
@@ -1616,7 +1616,7 @@ File: SecondSwap_Marketplace.sol
 180:     function initialize(address _token, address _marketplaceSetting) public initializer {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_Marketplace.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_Marketplace.sol)
 
 ```solidity
 File: SecondSwap_VestingDeployer.sol
@@ -1626,7 +1626,7 @@ File: SecondSwap_VestingDeployer.sol
 77:     function initialize(address _s2Admin, address _manager) public initializer {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingDeployer.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingDeployer.sol)
 
 ```solidity
 File: SecondSwap_VestingManager.sol
@@ -1636,5 +1636,5 @@ File: SecondSwap_VestingManager.sol
 107:     function initialize(address _s2admin) public initializer {
 
 ```
-[Link to code](https://github.com/code-423n4/2024-12-secondswapSecondSwap_VestingManager.sol)
+[Link to code](https://github.com/code-423n4/2024-12-secondswap/SecondSwap_VestingManager.sol)
 
