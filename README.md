@@ -35,8 +35,7 @@ Importantly, this secondary trading does not impact the current market prices of
 
 The protocol's architecture is outlined in the diagram below:
 
-<img alt="diagram" src="https://github.com/code-423n4/2024-12-secondswap/blob/main/diagram/SecondSwap_Contract_Diagram.png">
-
+![img](https://github.com/code-423n4/2024-12-secondswap/blob/main/diagram/SecondSwap_Contract_Diagram.png?raw=true)
 
 ## Links
 
@@ -179,8 +178,8 @@ To run gas benchmarks
 REPORT_GAS=true npx hardhat test
 ```
 
-<img width="1063" alt="gas" src="https://github.com/user-attachments/assets/bf40e76a-8e59-49c4-baa2-48780b97e23c">
-<img width="863" alt="coverage" src="https://github.com/user-attachments/assets/d08b818c-da3a-4719-90fb-c5508c38fd3d">
+![img](https://github.com/user-attachments/assets/bf40e76a-8e59-49c4-baa2-48780b97e23c)
+![img](https://github.com/user-attachments/assets/d08b818c-da3a-4719-90fb-c5508c38fd3d)
 
 ## Miscellaneous
 Employees of SecondSwap and employees' family members are ineligible to participate in this audit.
