@@ -39,7 +39,7 @@ The protocol's architecture is outlined in the diagram below:
 
 ## Links
 
-- **Previous audits:** a report is currently being finalized by Zellic and will be made available within 48h of contest start.
+- **Previous audits:** None made public.
 - **Website:** https://secondswap.io/
 - **X/Twitter:** https://x.com/secondswap_io
 
