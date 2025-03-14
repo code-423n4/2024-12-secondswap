@@ -1,0 +1,4409 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-PUBLIC / secondswap-dec
+==============================================================
+
+[12/09/2024 15:46] itsmetechjay (pinned)
+👋 Hello and welcome to the $35,000 in USDC **SecondSwap** audit channel!
+
+📆 Audit opens Monday, 09 December 2024 20:00 (20:00 UTC) and runs through Thursday, 19 December 2024 20:00 (20:00 UTC) (10 days).
+
+Please give a warm welcome to the **SecondSwap** team, particularly @bob, @Etcheverry , @edgyxx and @Tupperware, who will be available for questions either here in the channel or via a PRIVATE thread in the ICT timezone(s). 
+
+🤖 **Documentation bot assistance:** For general questions about the codebase, give our documentation bot a try, by tagging `@Docs Wolf` in any thread (private or public) and asking your question. The bot will make its best attempt to answer based on the codebase and documentation, and link you to relevant resources.  
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this audit, consider enabling notifications for this channel. 🐺 ⏰
+
+Audit Page: https://code4rena.com/audits/2024-12-secondswap
+
+{Reactions}
+🎉 (8) 
+
+[12/09/2024 15:47] itsmetechjay
+Pinned a message.
+
+
+[12/09/2024 19:59] deeney3866
+Let get froggy 🐸 🚀
+
+{Reactions}
+🔥 (4) 
+
+[12/09/2024 20:11] 0xgondarxyz
+Hi, has the codebase already implemented the fixes for the bugs found by Zellic? I'm asking since docs state that:
+>Previous audits: a report is currently being finalized by Zellic and will be made available within 48h of contest start.
+
+We're getting a fresh codebase that everything we find (except known issues stated) are valid, right?
+
+{Reactions}
+👀 (6) 
+
+[12/09/2024 20:32] agadzhalov
+known issues (bugs found by Zellic) will be announced in 48 hours and they won't be considered as valid?
+
+{Reactions}
+👍 (3) 
+
+[12/09/2024 20:33] 0xgondarxyz
+Interesting codebase, it doesn't seem ready at all because there are comments pointing out bugs such as:
+ // 3.1. Rounding issue leads to total drain of vesting entries
+
+This is directly in the codebase
+
+{Reactions}
+c4question 
+
+[12/09/2024 20:33] 0xgondarxyz
+I think we need more info
+
+
+[12/09/2024 22:19] itsmetechjay (pinned)
+ℹ️ Any findings from the previous audit should be considered out of scope, except `sponsor confirmed` findings that were later mitigated (this should be indicated in the code), but where the fix is insufficient or introduced a new issue. 
+
+If the SecondSwap team considered it a `wontfix` (i.e. `sponsor acknowledged` or `sponsor disputed`) in the preceding audit, and did not patch it, resubmitting it to this audit would a) have no value to the sponsor and b) most likely provide no value to wardens, since those issues are all known and could be submitted 100x.
+
+{Reactions}
+🫡 (3) 
+
+[12/09/2024 22:19] itsmetechjay
+Pinned a message.
+
+
+[12/10/2024 05:28] abu_turaab
+I think that the sponsors should try and get those kind of issues listed as known issues.
+
+
+[12/10/2024 05:39] c_moose
+I guess we need to wait for sponsers to get us the list of known issues from the previous audit. Also there are some dev deps missing (`typescript` , `ts-node` etc) but that shouldn't be a big deal.
+
+
+[12/10/2024 05:39] c_moose
+@Jay | C4 can you confirm please? 🙏
+
+
+[12/10/2024 06:45] owenzo
+are there any foundry tests in this project?
+
+
+[12/10/2024 06:53] dot_cloud
+no
+
+
+[12/10/2024 07:00] owenzo
+okay guys I'm out.
+
+{Reactions}
+4739_Skeletor (7) 😂 (17) 
+
+[12/10/2024 07:15] izuman
+I believe the comments are fixed if you look at `//  3.6. DOS caused by the use of transfer and transferFrom functions` you can see they replaced them all with `safeTransfer` and `safeTransferFrom` respectively
+
+
+[12/10/2024 07:34] 0xgondarxyz
+I see, thanks mate. Yesternight I didn't have much time to work on the codebase. Good luck y'all
+
+
+[12/10/2024 07:42] nadir_khan_sec
+good luck to all!
+
+
+[12/10/2024 09:39] kyosi2963
+are there previous audits ?
+
+{Reactions}
+👍 
+
+[12/10/2024 09:41] artur9905
+Yes,  they will provide the audit from Zellic today/tomorrow
+
+{Reactions}
+👍 (2) 🙏 
+
+[12/10/2024 13:31] trtrth
+Is it true that Zellic audit report will be provided 48hrs after contests started for every contest ?
+It is kinda wasting time for wardens if found issues that already Acknowledged in Zellic audit, isnt it ?
+
+{Reactions}
+👍 (3) 
+
+[12/10/2024 13:34] benrai
+I think all issues found in the last audit are fixed already
+
+
+[12/10/2024 13:58] trtrth
+Yes you are right, but I mentioned about the acknowledged issues
+
+
+[12/10/2024 14:29] lordmarvy
+@bob I'm having issues with the hardhat.config file
+
+
+[12/10/2024 14:29] lordmarvy
+How do you get the app to start up?
+
+
+[12/10/2024 14:30] lordmarvy
+Hey
+It's in hardhat
+You setting up a foundry test enviroment>?
+
+
+[12/10/2024 15:16] dot_cloud
+```bash
+git clone https://github.com/code-423n4/2024-12-secondswap
+cd 2024-12-secondswap
+npm install
+npx hardhat test
+```
+
+
+[12/10/2024 15:36] deeney3866
+@LordMarvy try this.
+
+
+[12/10/2024 15:47] harry_cryptodev
+I think so, i am out also.
+
+
+[12/10/2024 15:48] z3nithpu1se
+but shouldn't it be the team's work to inform us?
+
+
+[12/10/2024 16:00] 0xgondarxyz
+As far as I understood, the comments that are numbered about the issues are fixed in the codebase we have. I say this, in addition ot Izuman's comment above, that for instance there's this comment in unlistVesting function 
+
+            //  3.4. The s2Admin is unable to unlist vesting
+But in that function, admin is ABLE to unlist the vesting. So what I understand from there is that that was an issue raised by the Zellic team and the protocol has fixed it. 
+
+So, we have a fresh codebase that just went through an audit.
+
+ Everything is normal here. Although those comments make reading a bit confusing, I just choose to ignore them. There's the code after all
+
+
+[12/10/2024 16:01] izuman
+I know it is for the benefit of the Sponsor/Team they can add the Audit's known issues to the contest. For obvious reasons I don't think it is fair to update the contest for us Wardens. My advice is to wait until the audit is released.
+
+This contest should have been postponed until the audit was finished.
+
+{Reactions}
+this (21) 
+
+[12/10/2024 16:11] harry_cryptodev
+💯
+
+
+[12/10/2024 19:41] 0xstalin
+@bob @Tupperware Is there any documentation about the protocol? Can't find anything on the website
+
+{Reactions}
+✋ (2) 
+
+[12/10/2024 22:15] lordmarvy
+@bob @Tupperware
+
+
+[12/10/2024 23:29] unpluggedtj
+What does locked tokens mean here in general, from what I can understand there is an issuer who locks tokens via vesting and later distributes it to others via whitelisting.
+any real world example of such "lock" token?
+
+
+[12/10/2024 23:38] 0xstalin
+for example, the MORPH tokens that are allocated to the early investors/dev team.
+They have vested tokens until a certain date, that means, they can't do anything with those tokens, they can not sell their tokens until those tokens are released (vesting period is over)
+
+{Reactions}
+👍 (3) 💪 🫡 
+
+[12/11/2024 06:02] agadzhalov
+In the context of `listVesting` in `SecondSwap_Marketplace.sol` is `address _vestingPlan` an address of an already deployed  `SecondSwap_StepVesting.sol` contract?
+
+
+[12/11/2024 06:07] nadir_khan_sec
+Isn't it better to have more time to get to understand the protocol?
+
+
+[12/11/2024 06:09] trtrth
+no, time is not extended and we have risks that our findings could be invalid according to the known issues in audit report from Zellic
+
+{Reactions}
+👍 
+
+[12/11/2024 06:13] nadir_khan_sec
+Hmm..So from what i understand yes. The vestingPlan is an instance of the deployed StepVesting.sol (deployed by VestingDeployer.sol::deployVesting (line 119)
+
+{Reactions}
+thankyou 🙏 
+
+[12/11/2024 06:17] nadir_khan_sec
+I hear you...but that's life..just try your best. its good practice anyway
+
+
+[12/11/2024 06:17] justawanderkid
+does codebase feel little weird to u guys?
+
+
+[12/11/2024 06:17] justawanderkid
+it's not hard to understand, it's just weird
+
+{Reactions}
+😂 (3) 
+
+[12/11/2024 06:18] nadir_khan_sec
+a bit but in a way that feels that there are likely things to find, no?
+
+{Reactions}
+👍 (3) 
+
+[12/11/2024 06:18] nadir_khan_sec
+Also i read it out of order and then later it made more sense re-reading parts
+
+
+[12/11/2024 06:18] nadir_khan_sec
+idk abt you
+
+
+[12/11/2024 06:39] justawanderkid
+100%
+
+
+[12/11/2024 07:38] dot_cloud
+a bit external call gymnastic
+
+{Reactions}
+👍 (2) 
+
+[12/11/2024 07:43] glightspeed
+also a bit of require(if or else)
+
+{Reactions}
+✅ (2) 
+
+[12/11/2024 09:06] skid0016
+Has anyone gotten a response from the sponsors?
+
+
+[12/11/2024 09:37] blvcmamba
+Pkease can i be referred to the documentation site?
+
+
+[12/11/2024 09:39] skid0016
+the doc we have is the README, and you ca check their website and x
+
+
+[12/11/2024 09:39] blvcmamba
+Oh, On the website there's no any docs there
+
+
+[12/11/2024 09:40] dot_cloud
+here from README
+
+https://secondswap.io/
+even though no docs there
+
+
+[12/11/2024 09:40] dot_cloud
+thats all we have KEKW
+
+
+[12/11/2024 09:40] blvcmamba
+Alright thanks
+
+
+[12/11/2024 11:55] chrriss_
+Eth is the payment currency right
+
+{Reactions}
+👎 (4) 
+
+[12/11/2024 12:09] uaarrr
+ERC20 whitelisted by the admin are
+
+{Reactions}
+🤣 
+
+[12/11/2024 12:20] foufrix
+is it possible to have the codebase audited by Zellic, in order to see the diffs
+
+
+[12/11/2024 12:54] dot_cloud
+zellic report wen?
+
+{Reactions}
+➕ (5) 
+
+[12/11/2024 12:56] kyosi2963
+I think the codebase should use the fixed code
+
+
+[12/11/2024 13:20] foufrix
+This was not my question
+
+{Reactions}
+4739_Skeletor (5) 
+
+[12/11/2024 14:31] tomisin3930
+Has Zellic report been released? 
+It’s more than 48 hours already I guess
+
+
+[12/11/2024 15:23] itsmetechjay (pinned)
+ℹ️ Hey all, the sponsor has decided not to make the Zellic audit report public during this audit. So there will be no changes to the known issues at this time.
+
+{Reactions}
+✅ (18) 
+
+[12/11/2024 15:23] itsmetechjay
+Pinned a message.
+
+
+[12/11/2024 15:59] c_moose
+Do we know if it will be made public before the end of the C4 audit?
+
+{Reactions}
+👍 
+
+[12/11/2024 16:01] itsmetechjay
+It won't. Thank you for the question. I'll clarify my message above.
+
+{Reactions}
+✅ (4) 🙏 (2) 
+
+[12/11/2024 16:03] mushow
+Just to clarify again, does that mean that if we report issue that happen to be already been reported by Zellic it will count as valid?
+
+
+[12/11/2024 16:03] itsmetechjay
+It's not a known issue, so yes it will be in scope.  Whether it's valid will be up to the judge 🙂
+
+{Reactions}
+👍 (14) 
+
+[12/11/2024 16:53] nour99
+are the codebase up to date after mitigation/fix ?
+
+
+[12/11/2024 18:05] 0xfarman
+any lead for docs?
+
+
+[12/11/2024 18:08] kyosi2963
+Hey, guys , not related to the contest, but does someone know if on code4rena there are some requirements for payout as it on scherlock for example ,because i am not very active here ?
+
+
+[12/11/2024 18:22] huntzmanx
+https://docs.code4rena.com/
+
+{Embed}
+https://docs.code4rena.com/
+Code4rena | Code4rena
+Community-driven competitions for smart contract audits
+
+
+[12/11/2024 20:29] kyosi2963
+I don't get if code comments are things already fixed or they still remain as bugs 😂
+
+
+[12/11/2024 20:59] chaos304
+I haven't come across a comment that hasn't seemed to have been fixed yet if that helps lol
+
+{Reactions}
+👍 (3) 
+
+[12/11/2024 21:01] kyosi2963
+Yep same but still want to be sure, maybe i am missing something hahah
+
+
+[12/11/2024 21:41] kyosi2963
+in what timezone the sponsors are , when can we expect a response ?
+
+
+[12/11/2024 21:53] unpluggedtj
+edit - ICT
+
+{Reactions}
+🫡 (2) 
+
+[12/11/2024 23:39] unpluggedtj
+```
+Token issuers are assigned by the SecondSwap admin.
+```
+Is it safe to assume that Token issuers are also trusted?  just wanna confirm once.
+
+
+[12/12/2024 04:35] 0xfarman
+The website provided `Website: https://secondswap.io/` is not opening for me
+
+
+[12/12/2024 04:36] 0xfarman
+
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/image-75B91.png
+
+
+[12/12/2024 05:03] incredible_maypole_74699
+Hi, it is up and running now. You can try again
+
+
+[12/12/2024 07:35] edgyxx
+Yes that is correct, fixed code
+
+
+[12/12/2024 07:37] edgyxx
+No, payment is USDT for now, but could include other stable in future
+
+
+[12/12/2024 07:42] ritik2784
+i have a question can any token be vested or only usdt? @edgyxx
+
+
+[12/12/2024 07:42] dot_cloud
+there are list of ERC20 on README
+
+{Reactions}
+👍 
+
+[12/12/2024 07:44] edgyxx
+Those are indicative list at this point and we could have other tokens in the future as token issuers onboard with us. USDT is not vested but for payments
+
+
+[12/12/2024 07:50] ritik2784
+can u tell me which types of tokens can be vested?
+
+
+[12/12/2024 07:50] edgyxx
+At this stage only ERC20 issued by vetted token issuers
+
+
+[12/12/2024 07:51] alexzhang8602
+@bob MarketPlace and Seller must be same?
+
+
+[12/12/2024 07:52] incredible_maypole_74699
+Could you elaborate your question ?
+
+
+[12/12/2024 08:07] smb6272
+Please that Steps is it represented by days, can you explain it to me
+
+
+[12/12/2024 08:41] edgyxx
+Thats related to the vesting plan selected by token issuer, whether it's Stepwise, Linear Curve etc
+
+
+[12/12/2024 09:16] alexzhang8602
+Started a thread.
+
+
+[12/12/2024 09:33] itsmetechjay
+ℹ️ Wardens, FYI we've added @Etcheverry, to the list of sponsor team members to tag in private threads if you have questions about the codebase.
+
+{Reactions}
+👍 (7) 
+
+[12/12/2024 11:10] kyosi2963
+Which network the project will be deployed at ?
+
+
+[12/12/2024 11:11] artur9905
+Ethereum, Base, zkSync, Arbitrum
+
+{Reactions}
+👍 
+
+[12/12/2024 14:54] harry_cryptodev
+any doc for secondswap?
+
+
+[12/12/2024 15:44] skid0016
+Nope
+
+
+[12/12/2024 15:52] dot_cloud
+is token issuer trusted like admin? seems like token issuer would be erc20 token owner / another user who use the protocol
+@edgyxx
+
+
+[12/12/2024 20:12] glenbruce
+the admin and token issuer are listed as trusted roles in the protocol in the readme
+
+
+[12/12/2024 20:38] nem0thefinder
+hey man
+
+
+[12/12/2024 20:55] skid0016
+happy to see you here
+
+{Reactions}
+🫡 
+
+[12/13/2024 00:14] 0xstalin
+@Jay | C4 Question, is the new sponsor @Etcheverry or @edgyxx ?
+I can see @edgyxx has the sponsor tag, and he has answered a couple of questions in the channel...
+
+
+[12/13/2024 00:33] itsmetechjay
+They are both members of the sponsor team.
+
+{Reactions}
+🙏 
+
+[12/13/2024 04:19] 0xlaffitte
+If i do poc in foundry , is it going to accept?
+
+
+[12/13/2024 04:46] 0xgondarxyz
+Of course.
+
+
+[12/13/2024 05:02] agadzhalov
+What is referral in marketplace? Who is the referrer?
+
+
+[12/13/2024 05:55] glightspeed
+Looks like it's still WIP. Current codebase only allows msg.sender == referral
+
+
+[12/13/2024 07:55] chaos304
+It's the opposite msg.sender can't be referral
+
+
+[12/13/2024 08:27] glightspeed
+my bad. you're right
+
+
+[12/13/2024 09:00] kyosi2963
+@bob @Tupperware Can u check PT if possible 🙏
+
+
+[12/13/2024 14:13] smb6272
+Any info about the zellic report
+
+
+[12/13/2024 14:14] nadir_khan_sec
+It wont be released during the audit contest, known issues are only those listed on the contest page
+
+{Reactions}
+👍 
+
+[12/13/2024 14:18] nadir_khan_sec
+anyone getting this error when trying to run the tests?
+  HardhatError: HH700: Artifact for contract "TransparentUpgradeableProxy" not found.
+
+{Reactions}
+👎 
+
+[12/13/2024 14:27] unpluggedtj
+Nope, all are running successfully for me
+
+
+[12/13/2024 15:20] kyosi2963
+Where is the upgradability logic , is it included in the current scope, can someone point me to it ?
+
+
+[12/13/2024 15:24] c_moose
+Apparently, there isn't any contract to handle that. It is done via hardhat ignition, i don't know why.
+
+{Reactions}
+👍 (2) 
+
+[12/13/2024 15:58] kyosi2963
+Did u ,guys, receive responses from the sponsor team ?
+
+{Reactions}
+👎 
+
+[12/13/2024 16:04] mushow
+Yes, in Private Threads
+
+
+[12/13/2024 16:05] kyosi2963
+Yeah, because i didn't receive from 24hours+ and was wondering if it's only me or other people as well
+
+
+[12/13/2024 16:05] mushow
+I guess it also depends on how you ask your question, if there’s enough details so they don’t have to go through the hassle and answer you directly
+
+
+[12/13/2024 16:06] mushow
+We talked this morning, 6.45 am GMT time approx
+
+
+[12/13/2024 16:06] kyosi2963
+I got it ,maybe the problem is on my side
+
+
+[12/13/2024 16:07] mushow
+I mean I don’t know how much demand they’ve got. But if you’re just asking 1 sentence, maybe it’s not the best way to pose your question.
+
+
+[12/13/2024 16:08] mushow
+Again, I don’t know how you’re formulating your questions
+
+
+[12/13/2024 16:12] kyosi2963
+I've asked 2 long questions , but i don't know , they are maybe not satisfied with the way i am asking, anyway it is what it is ,thanks 😄
+
+
+[12/13/2024 16:20] itsmetechjay (pinned)
+ℹ️ Hey all, keep in mind that if you have basic questions about the codebase and the docs, `Docs Wolf` is available as an option.   
+
+> 🤖 **Documentation bot assistance:** For general questions about the codebase, give our documentation bot a try, by tagging `@Docs Wolf` in any thread (private or public) and asking your question. The bot will make its best attempt to answer based on the codebase and documentation, and link you to relevant resources.
+
+{Reactions}
+👌 
+
+[12/13/2024 16:21] itsmetechjay
+Pinned a message.
+
+
+[12/13/2024 16:24] mushow
+This is how I go about it, question number, clear question, code block, specifying the exact line / function, comments in the code.
+
+
+[12/13/2024 16:24] mushow
+
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/Screenshot_2024-12-13_at_17.21.51-764E6.png
+
+{Reactions}
+❤️ (4) 👍 (5) 
+
+[12/13/2024 16:24] kyosi2963
+Thanks G
+
+{Reactions}
+👌 
+
+[12/13/2024 18:16] 0xstalin
+`SecondSwap_Artifact_Testing_Purposes.sol` handles the proxy contracts
+
+{Reactions}
+👍 (2) 
+
+[12/13/2024 18:17] 0xstalin
+The upgradeability pattern is a TransparentUpgradeableProxy, a ProxyAdmin as the admin of the proxy, and the SecondSwap contracts as the implementation contract of the proxy
+
+
+[12/13/2024 20:10] chaos304
+it practically has the same quality as a report lol thanks for sharing
+
+{Reactions}
+🫡 
+
+[12/13/2024 20:17] mushow
+It just makes it easier for the sponsor to filter out. Imagine we are probably **100+** participating, with each of us maybe **3+** questions at least. 
+
+If there are questions like; what does this function do?
+
+The protocol might not take the time to answer 300 times the same thing. My way of thinking is just, make it easy for them to answer, very specific questions. If you do that, and make it proper, like `Question 1`, `Question 2`, etc.. they can just say:
+
+> Q1 : Blabla
+> Q2 : Blabla
+
+Makes everything more organised and easier to see which one , they'll be eager to respond because you formulate the question the best way for you to perform at your best.
+
+{Reactions}
+💜 (6) 10_10 
+
+[12/14/2024 06:55] owenzo
+one question, are all ERC20 tokens accepted in this protocol?
+
+
+[12/14/2024 06:59] 0xaman.
+I think no , <6 and >18 are supported as stated in Readme
+
+
+[12/14/2024 07:08] tupperware0037 (pinned)
+Hi guys, just a quick reminder - please do tag @bob @Etcheverry @edgyxx @Tupperware in all your PTs so that we could all have visibility on them. It will help us address your concerns faster
+
+
+[12/14/2024 07:11] tupperware0037
+Yes, as well as token with odd decimals (<6 and >18)
+
+{Reactions}
+🫡 
+
+[12/14/2024 07:24] owenzo
+lol already found a High through this reponse
+
+{Reactions}
+💀 
+
+[12/14/2024 07:24] owenzo
+okay thanks and God bless.
+
+{Reactions}
+🙏 
+
+[12/14/2024 07:30] dot_cloud
+if its true then anyone who read this would get a hint, then 100 dup 😂
+
+{Reactions}
+🤣 (5) 
+
+[12/14/2024 07:34] owenzo
+trust me bro when I say this its a rare one its not that obvious
+
+
+[12/14/2024 07:34] owenzo
+lol just look at the functions very well
+
+
+[12/14/2024 07:34] owenzo
+I rest my case
+
+
+[12/14/2024 07:39] 0xaman.
+@Tupperware as per readme only <6 and >18 token re in scope not all ERC20 for weird behavior correct me if i am wrong :
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/image-35994.png
+
+
+[12/14/2024 07:40] owenzo
+the hint is in that.
+
+
+[12/14/2024 07:40] owenzo
+I rest my case
+
+
+[12/14/2024 07:40] owenzo
+solo high incoming
+
+
+[12/14/2024 07:40] owenzo
+backstage pass incoming
+
+
+[12/14/2024 07:40] owenzo
+code4arena X platform glaze incoming
+
+
+[12/14/2024 07:42] 0xaudron
+$0.1 reward issued for @0xenzo_eth
+
+{Reactions}
+🤣 (3) 
+
+[12/14/2024 07:58] owenzo
+yo one question what happens if you find the same vulnerability class in more than one function.
+
+
+[12/14/2024 07:58] owenzo
+do you go around and make a report for each of those functions
+
+
+[12/14/2024 07:58] owenzo
+or do a genenaralized report for all functions that have the same vulnerability?
+
+
+[12/14/2024 08:00] 0xaman.
+if root cause is same and single fix can matigate it or same fix is required than you can submit it as a single report
+
+
+[12/14/2024 08:00] mushow
+I'd say the same, has to be the same rootcase / same fix for all of them
+
+
+[12/14/2024 08:01] owenzo
+okay nice God bless.
+
+
+[12/14/2024 08:01] skid0016
+what has this man seen
+
+{Reactions}
+🤣 
+
+[12/14/2024 08:03] mrfalsegenius
+Too much!
+
+
+[12/14/2024 08:03] 0xaudron
+one root cause - one fix
+
+
+[12/14/2024 08:04] owenzo
+yo where is the past reports
+
+
+[12/14/2024 08:04] owenzo
+I cant find them
+
+
+[12/14/2024 08:05] skid0016
+none
+
+
+[12/14/2024 08:09] owenzo
+yo do I have to copy the code4rena markdown template on writing report
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/Screenshot_2024-12-14_at_11.09.14-77A2B.png
+
+
+[12/14/2024 08:09] owenzo
+or I can customize it to my own?
+
+
+[12/14/2024 08:15] mushow
+Customize as you need, just make sure you're providing as much details as possible. If it's super clear, even if long, the judges / dev team will appreciate it
+
+
+[12/14/2024 08:20] owenzo
+alright thanks
+
+
+[12/14/2024 08:30] etcheverry3096 (pinned)
+A number of wardens are asking the same questions that we feel it’s better to clarify directly in this channel:
+
+1. Questions around referral fees - we noticed many questions in the private chats regarding referral calculations and payment/distribution mechanisms. Currently the team has not determined the best way to distribute referral payments and at this stage we will do off chain payment based on the collected referral data.
+
+2. Questions around upgradeable proxies - we are using OZ upgradeable proxies, we did not write any code to extend it because we are only using it for the hardhat ignition modules.
+https://docs.openzeppelin.com/contracts/4.x/api/proxy#TransparentUpgradeableProxy
+
+3. Questions around whitelists - anyone will be allowed to whitelist their own address, it serves simply to limit the number of users that have access to private listings.
+
+{Embed}
+https://docs.openzeppelin.com/contracts/4.x/api/proxy
+Proxies - OpenZeppelin Docs
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/social-52CB8.png
+
+{Reactions}
+👍 (4) 
+
+[12/14/2024 08:33] owenzo
+uhm guys I am having a hardtime using the diff mardown tag for my report lemme show you sutm
+
+
+[12/14/2024 08:34] owenzo
+its not doing that highlighting stuff
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/Screenshot_2024-12-14_at_11.33.54-886B0.png
+
+
+[12/14/2024 09:24] chaos304
+ah nevermind looks like diff doesn't work on the website for some reason
+
+
+[12/14/2024 09:26] owenzo
+alright thanks for the response
+
+
+[12/14/2024 09:53] welith
+so should we assume that referal fees are WIP and not submit issues revolving around them?
+
+
+[12/14/2024 10:00] pumpkingwok
+HI @Etcheverry , I created a private thread including you, i'd like to ask you a quick question about the marketplace logic, thanks in advance.
+
+
+[12/14/2024 10:01] etcheverry3096
+Please continue to submit issues if you find any. Many questions we received were about why the referral fees are not transferred and it's because it's done off chain at the moment.
+
+
+[12/14/2024 10:46] kyosi2963
+Very helpful, thanks
+
+
+[12/14/2024 11:37] benterkiii
+i wont bother my self then hhh
+
+
+[12/14/2024 11:39] mrfalsegenius
+1 down, 99 dups left
+
+{Reactions}
+😂 
+
+[12/14/2024 11:46] benterkiii
+i just saw the WARDENS count of this chat 
+dude there is 1044 
+i bet you it will be 500 dups 😂
+
+{Reactions}
+🤣 
+
+[12/14/2024 11:49] welith
+you are looking at the wardens count currently online in c4arena, not for the channel alone
+
+{Reactions}
+😂 
+
+[12/14/2024 11:50] mrfalsegenius
+Yeah! @Benterkiii Get your facts straight! I almost dropped this dup
+
+
+[12/14/2024 11:50] benterkiii
+yeah maybe i am wrong
+
+
+[12/14/2024 11:51] benterkiii
+I wish you all a good hunting guys
+
+{Reactions}
+❤️ 
+
+[12/14/2024 11:56] elser17
+In Listing struct, I guess that pricePerToken indicates the price of the vested token in terms of Listing.currency, is this correct?
+
+
+[12/14/2024 12:03] elser17
+If you could please clarify
+
+
+[12/14/2024 12:07] welith
+yes, exactly... you set the total and balance to be the vesting token (i.e 1e18 or something differenct), and the pricePerUnit is the currency token representation
+
+{Reactions}
+✨ 
+
+[12/14/2024 12:07] tusharr1411
+yes '
+
+
+[12/14/2024 12:09] elser17
+And in which format is expressed this pricePerUnit variable?
+
+
+[12/14/2024 12:09] elser17
+And in which format is expressed this pricePerUnit variable?
+1e18, basis points, 1:1 ratio...
+
+
+[12/14/2024 12:13] welith
+so imagine you have 100 vesting tokens that have 18 decimals. You set the total and balance to be e.g. 20e18, and you want 1 vestint token to be sold for e.g. 1 USDC, so the pricePerUnit will be 1e6
+
+
+[12/14/2024 12:14] welith
+From this the basePrice of the listing will be (20e18 * 1e6) / 1e18 = 20e6 or 20 USDC
+
+
+[12/14/2024 12:16] .justuzair
+are there any odd decimal tokens though? I dont know any, I thought they didn't exist
+
+
+[12/14/2024 12:16] welith
+meme tokens can be with all kind of token decimals, I guess they want to support them
+
+
+[12/14/2024 12:16] .justuzair
+ah I see
+
+
+[12/14/2024 12:17] .justuzair
+Thanks for the alpha ser
+
+{Reactions}
+🫡 
+
+[12/14/2024 12:24] tusharr1411
+poc in foundry is acceptable ?
+
+{Reactions}
+👍 
+
+[12/14/2024 12:43] bro_are_u_ok
+hi，everyone. why this text code use s2Admin for deploymentTx？
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/image-5CDD9.png
+
+
+[12/14/2024 12:44] bro_are_u_ok
+it's some strange here
+
+
+[12/14/2024 13:01] mgnfy_view
+Is token issuer trusted?
+
+
+[12/14/2024 13:04] mushow
+
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/image-76DCB.png
+
+{Reactions}
+👍 (2) 
+
+[12/14/2024 13:05] dot_cloud
+I believe so
+but I think token issuer is the same as 3rd party who use the protocol to distribute their token
+
+sooo idk if is it the same level of trusted as protocol owner/admin???
+
+
+[12/14/2024 13:07] welith
+It's stated in the contest page that the Token Issuer is set by the admin so yes trusted
+
+
+[12/14/2024 13:09] bro_are_u_ok
+it look the 2sAdmin's power is so grate，any issuer must make a deal with 2sAdmin，even it can not happen on chain
+
+
+[12/14/2024 13:09] bro_are_u_ok
+thanks
+
+
+[12/14/2024 14:20] itsmetechjay
+Pinned a message.
+
+
+[12/14/2024 14:21] itsmetechjay
+Pinned a message.
+
+
+[12/14/2024 14:25] c_moose
+I wish this was clarified in the audit readME or the docs. Would've saved me a few hours. 😞 
+Thanks for clarifying it anyway.
+
+
+[12/14/2024 14:27] mgnfy_view
+Has anyone set up a minimal foundry version?
+
+
+[12/14/2024 14:27] mgnfy_view
+It'd be great if someone could share their setup
+
+
+[12/14/2024 14:34] 0xsl1
+```js
+import "lib/forge-std/src/Test.sol";
+import "lib/forge-std/src/console2.sol";
+import {SecondSwap_Marketplace} from "../contracts/SecondSwap_Marketplace.sol";
+import {SecondSwap_MarketplaceSetting} from "../contracts/SecondSwap_MarketplaceSetting.sol";
+import {SecondSwap_StepVesting} from "../contracts/SecondSwap_StepVesting.sol";
+import {SecondSwap_VestingDeployer} from "../contracts/SecondSwap_VestingDeployer.sol";
+import {SecondSwap_VestingManager} from "../contracts/SecondSwap_VestingManager.sol";
+import {TestToken1} from "../contracts/USDT.sol";
+
+contract sl1Test is Test {
+    SecondSwap_Marketplace public marketplace;
+    SecondSwap_MarketplaceSetting public marketplaceSettings;
+    SecondSwap_VestingDeployer public vestingDeployer;
+    SecondSwap_VestingManager public vestingManager;
+    TestToken1 public USDT;
+
+    address admin = makeAddr("admin");
+    address whitelist;
+
+    function setUp() public {
+        vm.startPrank(admin);
+        USDT = new TestToken1();
+        vestingManager = new SecondSwap_VestingManager();
+        vestingManager.initialize(admin);
+        marketplaceSettings = new SecondSwap_MarketplaceSetting(
+            admin,
+            admin,
+            whitelist,
+            address(vestingManager),
+            address(USDT)
+        );
+        marketplace = new SecondSwap_Marketplace();
+        marketplace.initialize(address(USDT), address(marketplaceSettings));
+        vestingDeployer = new SecondSwap_VestingDeployer();
+        vestingDeployer.initialize(admin, address(vestingManager));
+
+        vestingManager.setVestingDeployer(address(vestingDeployer));
+        vestingManager.setMarketplace(address(marketplace));
+        vm.stopPrank();
+    }
+```
+
+{Reactions}
+🔥 (11) 👍 (4) 
+
+[12/14/2024 14:42] uddercover
+Thankss
+
+
+[12/14/2024 14:44] c_moose
+thanks g
+
+
+[12/14/2024 15:14] mgnfy_view
+You aren't using proxies here?
+
+
+[12/14/2024 15:15] 0xsl1
+I didn't need them for PoC purposes
+
+{Reactions}
+👍 
+
+[12/14/2024 17:37] owenzo
+God bless fam
+
+
+[12/14/2024 17:52] xkeywordx
+Hello, I have another question about the referralFees. Are they supposed to be a percentage of the buy/sell fee or is it applied to the actual amount traded? For example, if amount bought is 100$ and  `buyFee` is 2.5% (2.5$) , and `referralFees` are set to 10%, then the referrer is supposed to get 10% out of the 2.5$ (meaning 0.25 cents) or are they supposed to get 10$ (10% of the full 100$ amount)?
+
+
+[12/14/2024 17:54] welith
+the code clearely shows that its taken from the buyer fee
+
+
+[12/14/2024 17:55] owenzo
+tommorow I got a lot of thinking to do.
+
+{Reactions}
+🤣 
+
+[12/14/2024 17:57] itsabinashb
+@Etcheverry can the tokenIssuer be malicious?
+
+
+[12/14/2024 17:57] xkeywordx
+Ty
+
+
+[12/14/2024 18:00] itsabinashb
+okay, they are trusted. Forgot that.
+
+
+[12/14/2024 18:31] 0xaudron
+a lot of thinking = a lot of solo high :10_10:
+
+{Reactions}
+❤️ (2) 
+
+[12/14/2024 18:48] owenzo
+love to see the grind you putting out there on X by the way.
+
+{Reactions}
+🫡 
+
+[12/14/2024 18:59] 0xaudron
+thanks sir, putting it on contest as well 😉
+
+
+[12/14/2024 19:31] ._rolando_.
+What does this mean:
+// 3.6. DOS caused by the use of transfer and transferFrom functions
+// 3.1. Rounding issue leads to total drain of vesting entries
+
+Are these already known issues?
+
+
+[12/14/2024 19:42] tusharr1411
+i think these are already fixed issues
+
+
+[12/14/2024 19:44] ._rolando_.
+https://discord.com/channels/810916927919620096/1299446629652365362/1315940003750084648
+
+
+[12/14/2024 21:33] y0ng0p3
+I hope you will find it useful. This uses proxies.
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/2024-12-secondswap_setup_foundry-47A71.md
+
+{Reactions}
+🔥 (2) 
+
+[12/14/2024 22:27] lohaclohell
+Man I just love this community
+
+
+[12/14/2024 23:26] kann_p
+the whole server is doing this contest
+
+
+[12/14/2024 23:26] kann_p
+gl guys
+
+
+[12/14/2024 23:27] kann_p
+😼
+
+
+[12/15/2024 00:30] ._rolando_.
+Here's another version in case anyone has problema.
+
+
+[12/15/2024 00:34] ._rolando_.
+
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/BaseTest-0576A.md
+
+
+[12/15/2024 02:04] memorydump55555
+this is broken ser, in many places xD
+
+
+[12/15/2024 02:58] yuzadef
+Who can call listVesting()?
+
+
+[12/15/2024 03:14] 0xstalin
+You can make a hacky thing like this
+```
+contract WrapperMarketPlace is SecondSwap_Marketplace {
+  ListingType public listingType = ListingType.SINGLE;
+  DiscountType public discountType = DiscountType.NO;
+}
+```
+
+And just call the variable you need, for example:
+`wrapperContract.listingType()`
+
+
+[12/15/2024 04:18] mrfalsegenius
+These days, it's the trusted ones doing malicious deeds
+
+{Reactions}
+😂 (5) 🙂 
+
+[12/15/2024 06:48] m4k2
+Does foundry poc are accepted by the secondSwap team (officially), even if the base framework is hardhat ?
+
+
+[12/15/2024 07:25] ._rolando_.
+Why is broken?
+It works for me.
+
+
+[12/15/2024 07:34] tusharr1411
+correct me if I am wrong...  `token` is the token for which vesting is created and `usdt` is the one gonna be used as payment currency in marketplace. right ...? then `marketplace` should be initialize with the token which is going to be used as payment which in this case is  `usdt`  ?
+
+
+[12/15/2024 07:35] smb6272
+@Etcheverry 
+Please your attention is needed in this question am tagging
+
+
+[12/15/2024 07:56] welith
+usdt is the penalty currency, the currency used for the marketplace are defined per listing and are based on the allowed tokens in the marketplace
+
+{Reactions}
+❤️ (2) 
+
+[12/15/2024 08:28] trtrth
+It is decided by judges, not the sponsors
+
+
+[12/15/2024 10:04] unpluggedtj
+It is accepted as long as your setup is correct and test case passes.
+
+
+[12/15/2024 11:39] benterkiii
+a documentation would have been very helpful in this audit.
+
+{Reactions}
+✅ 
+
+[12/15/2024 14:29] memorydump55555
+are you **sure** it works? i don't think you have actually ran it ser because you prank `admin` and do a token transfer when `admin` has not been allocated the amount, or approved the amount prior to the execution. this token transfer then fails. you also define 4 arguments for TestToken, yet it only accepts 3. it's definitely broken haha
+
+and if it works for you then I think changes were made in the main contracts or your foundry is broken, and both of these cases worry me regarding PoC writing. be careful ser.
+
+
+[12/15/2024 16:46] theschnilch
+@Etcheverry Why does maxSellPercent exist? Why can't you just sell as much as you own?
+
+
+[12/15/2024 16:54] kyosi2963
+I guess because tokenIssuer would like to specify what part of these tokens u own u are able to sale
+
+{Reactions}
+👍 
+
+[12/15/2024 16:58] kyosi2963
+How the pricePerUnit for listing is scaled, by the decimals of listing currency token or ?
+
+
+[12/15/2024 17:36] 0xrochimaru
+is POC mandatory?
+
+
+[12/15/2024 19:31] benrai
+The price has the decimals of the currency used to pay for it. So if the currency is e.g. USDT the price would have 6 decimals
+
+{Reactions}
+👍 (2) 
+
+[12/15/2024 21:21] unpluggedtj
+From my understanding, it's by currency token as it's being divided by it's decimals at places for baseAmount
+
+
+[12/15/2024 21:22] unpluggedtj
+No, but I strongly recommend submitting one if the issue is a bit complex.
+
+
+[12/15/2024 21:22] kyosi2963
+yeap i got it
+
+{Reactions}
+👍 
+
+[12/15/2024 22:06] memorydump55555
+has anyone successfully executed `listVesting` as a brand new user in foundry? my call trace keeps reverting, and i think it's due to the `decimals()` function check?
+
+
+[12/15/2024 22:22] 0xstalin
+What's the error you get?
+
+
+[12/15/2024 22:24] memorydump55555
+it is a revert on `getVestingTokenAddress` require call (for decimals check), but after reading a message from bob he states that only the marketplace can interact with the `listVesting` function, and there is a marketplace modifier on `getVestingTokenAddresses` so that is probably the issue, as I am executing `listVesting` overall as alice
+
+
+[12/15/2024 22:24] 0xstalin
+have you configured the Marketplace as the Marketplace on the VestingManager?
+
+
+[12/15/2024 22:25] memorydump55555
+yep it's initialised, same with deployer
+
+this specific issue is fixed: the `vestingPlan` deployment is returning the correct address in debug mode, but when you directly cast it to a address variable, it's a 0x000 addy. that's what broke everything for me xD apparently you can't do this in foundry (or skill issue on my part)...
+
+
+[12/16/2024 06:34] owenzo
+I am seeing some findings already stated on the codebase
+
+
+[12/16/2024 06:35] owenzo
+are those already implemented fixes or yet to be implemented??
+
+
+[12/16/2024 06:45] owenzo
+and plus the only token being listed is just the USDT token not any other token??
+
+
+[12/16/2024 06:55] 0xsl1
+I got the vestingPlan address by console logging it in the VestingDeployer::deployVesting() function, everything works for me
+
+
+[12/16/2024 07:02] dulgiq
+are start and endtime calculated in seconds?
+
+
+[12/16/2024 07:10] dot_cloud
+usdt is the payment currency, it is different than the listed one
+
+
+[12/16/2024 07:10] owenzo
+okay nice nice.
+
+
+[12/16/2024 07:12] owenzo
+more like the listing.currency struct right?
+
+{Reactions}
+✅ 
+
+[12/16/2024 07:41] owenzo
+okay God bless
+
+
+[12/16/2024 09:49] owenzo
+this codebase has broken me and I am fed up.
+
+
+[12/16/2024 09:50] owenzo
+I am dipping from this codebase with 2M and 2L. `Adios amigos!!`
+
+
+[12/16/2024 10:05] kyosi2963
+no solo highs ?
+
+{Reactions}
+😂 (9) 
+
+[12/16/2024 10:37] chaos304
+I almost had one 🥲
+
+
+[12/16/2024 10:39] dot_cloud
+we all 🥲
+
+
+[12/16/2024 10:41] kyosi2963
+U didn’t get the joke 😄
+
+
+[12/16/2024 10:42] chaos304
+pocs kill dreams man every single time LOL
+find high -> get excited -> write poc -> low/invalid -> rinse and repeat 😂
+
+{Reactions}
+🤣 (8) 
+
+[12/16/2024 10:43] chaos304
+guess I'm not cultured enough yet
+
+
+[12/16/2024 10:49] benterkiii
+Keep up and read more findings, you'll get better
+
+
+[12/16/2024 11:52] lohaclohell
+Still no docs right?
+
+
+[12/16/2024 12:00] nadir_khan_sec
+no mate
+
+
+[12/16/2024 15:35] c0pp3rscr3w3r
+guys does this contest go through a validation repo way or are the  submissions directly visible in the menu after it and visible immediately (and then validated) ?
+
+
+[12/16/2024 18:52] unpluggedtj
+I thought I was the only one in this contest, the code just somehow works
+
+{Reactions}
+👍 
+
+[12/16/2024 19:06] kyosi2963
+Definitely there won’t be much m/h if any of course 😄
+
+{Reactions}
+👀 (2) 
+
+[12/16/2024 19:16] _3doc_
+if one doesn’t become good by proving themselves wrong with coded PoCs, I don’t know what else does…
+
+Keep trying, some will work eventually
+
+{Reactions}
+🔥 (2) 
+
+[12/16/2024 19:20] _3doc_
+also if you can, try to understand exactly what makes the poc not work, sometimes there’s an edge case to make it work 😉
+
+
+[12/16/2024 19:28] chaos304
+thanks for the tip and I do enjoy writing them, better prove myself wrong than add onto the issue count with an obviously invalid finding. only part I struggle a bit with is writing the actual report which has been becoming easier 😄
+
+{Reactions}
+noddinggoat (4) 
+
+[12/16/2024 22:58] benterkiii
+hi, in case I submit 1 or 2 low valid issues 
+will they be validated or should i send a lot of lows??
+
+
+[12/16/2024 23:03] kyosi2963
+I think all lows should be included in the QA report at once
+
+
+[12/16/2024 23:04] unpluggedtj
+Oh, but once a judge said in past that sending lows standalone is easier for them, idk.
+
+
+[12/16/2024 23:05] kyosi2963
+Didn't know , that's the way i thought it should be relying on docs, it's my first contest on code4rena so i am not 100% sure 😄
+
+
+[12/16/2024 23:07] benterkiii
+how can i ask the judge ?? is it okay if i tag him here ?
+
+
+[12/16/2024 23:12] unpluggedtj
+Moved discussion to #❓・questions
+
+{Reactions}
+👌 
+
+[12/17/2024 03:02] dot_cloud
+been there
+
+
+[12/17/2024 06:17] kapten.crtz
+Hello @Etcheverry no one is responding to my pt I tagged @bob @edgyxx and @Tupperware
+
+
+[12/17/2024 06:19] incredible_maypole_74699
+could you tag me on your pt again? I may have missed it
+
+
+[12/17/2024 06:19] kapten.crtz
+Okay
+
+
+[12/17/2024 06:20] kapten.crtz
+Done @bob
+
+
+[12/17/2024 06:22] tusharr1411
+does reallocate also mean that token issuer can reduce the amount of a vesting ?
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/image-BE4F1.png
+
+
+[12/17/2024 06:46] trtrth
+I think it is the ability to change allocation by transferring vestings or creating new ones. Not very sure about that
+
+
+[12/17/2024 06:55] tusharr1411
+I mean if it is allowed then they are definitely  missing a `reduceVesting()` function.
+
+
+[12/17/2024 06:56] trtrth
+I think it is unnecessary, since transferring vesting is enough
+
+
+[12/17/2024 07:02] tusharr1411
+yeah but transferring vesting to address(0)` is not allowed
+
+
+[12/17/2024 07:03] tusharr1411
+and reduceVesting() can transfer the reduced tokens back to tokenIssuer.
+
+
+[12/17/2024 08:05] dot_cloud
+reallocate should be allocating to other user
+because thats what the contracts implement 😁
+
+
+[12/17/2024 08:09] dot_cloud
+transferVesting to tokenIssuer should have the same function
+
+
+[12/17/2024 09:58] saurabh_0312
+what does this means
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/Screenshot_2024-12-17_152758-1ABA8.png
+
+
+[12/17/2024 09:59] welith
+that its ok for the add to whitelist function to be permisionless.. anyone can add themselves to the whitelist
+
+
+[12/17/2024 09:59] saurabh_0312
+https://tenor.com/view/pinguman-surprise-pinguman-mikefoster-surprise-monke-surprised-gif-25977149
+
+{Embed}
+https://tenor.com/view/pinguman-surprise-pinguman-mikefoster-surprise-monke-surprised-gif-25977149
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/pinguman-surprise-pinguman-39527.png
+
+{Reactions}
+😂 
+
+[12/17/2024 09:59] saurabh_0312
+is that ok??
+
+
+[12/17/2024 09:59] .justuzair
+yup sponsor confirmed it above
+
+
+[12/17/2024 10:00] .justuzair
+check the pinned messages
+
+
+[12/17/2024 10:00] saurabh_0312
+hii uzair this is me (Saurabh singh)
+we talked on likedin last week
+
+
+[12/17/2024 10:36] owenzo
+the man himself help me with your twitter account by the way I follow you by the way.
+
+
+[12/17/2024 10:44] .justuzair
+Sorry ser didn’t understand what you meant
+
+
+[12/17/2024 11:05] .justuzair
+Hey man 👋
+
+
+[12/17/2024 11:16] c_moose
+Anyone else struggling to add diff to their reports? Diff is not highlighting for me correctly, any solutions please?
+
+
+[12/17/2024 11:31] mushow
+Diff's not working in the webapp; it'll work on the git repo.
+
+{Reactions}
+✅ (2) 
+
+[12/17/2024 12:23] elser17
+In Marketplace.listVesting, should I assume that the _price parameter is the price of 1 base unit of the vested token in terms of the currency token in the format of decimals that currency has?
+
+
+[12/17/2024 12:24] 0xaman.
+yes
+
+
+[12/17/2024 12:24] elser17
+If currency has 6 decimals, and 1 vested token equals 1 currency tokens, then _price should be 10**6, right?
+
+
+[12/17/2024 12:24] elser17
+OK
+
+
+[12/17/2024 12:38] kyosi2963
+The price will be scaled by the currency decimals, amount will be scaled by the vesting token decimals
+
+
+[12/17/2024 13:17] benterkiii
+if a low issue was a little complicated, it is better if i write a text POC ??
+
+
+[12/17/2024 13:22] odhismanuel
+Anyone who has experienced this? A submission of this type already exists, only 1 is allowed.!
+
+
+[12/17/2024 13:22] .justuzair
+for low issues?
+
+
+[12/17/2024 13:23] odhismanuel
+yes it is irritating
+
+
+[12/17/2024 13:24] .justuzair
+its because you have to submit all lows and QAs as a single submission
+
+kinda like 
+
+# Low 1
+# Low 2
+...
+
+{Reactions}
+❤️ 
+
+[12/17/2024 13:24] odhismanuel
+Thanks mate
+
+{Reactions}
+🙏 
+
+[12/17/2024 13:24] .justuzair
+no worries ser, be sure to check the c4 docs tho
+
+{Reactions}
+👍 (2) 
+
+[12/17/2024 13:36] drandkid
+Guys I have a question. if I find a bug that is caused by the same root issue but that root issue can be created through 4 different paths, are those 4 different bugs?
+
+
+[12/17/2024 13:37] 0xaman.
+@Tupperware can you please check the PT?
+
+
+[12/17/2024 13:39] kyosi2963
+I guess it's 1 issue since the root cause is that same
+
+
+[12/17/2024 13:40] drandkid
+Alright, thanks
+
+
+[12/17/2024 13:42] kyosi2963
+U can describe in the same report the different impacts over the system
+
+
+[12/17/2024 13:43] drandkid
+Alright
+
+
+[12/17/2024 13:43] drandkid
+Thanks again
+
+{Reactions}
+❤️ 
+
+[12/18/2024 07:41] kapten.crtz
+hello @bob and @Tupperware can you please check my PT
+
+
+[12/18/2024 09:07] nadir_khan_sec
+Still not clear on if a bug related to a finding commented by Zellic is valid or not..
+
+
+[12/18/2024 09:11] nadir_khan_sec
+i.e. if it was not solved
+
+
+[12/18/2024 09:13] nslavchev
+I think that the comments are about resolved bugs so if there is something wrong it should be valid
+
+{Reactions}
+✅ (2) 
+
+[12/18/2024 09:29] kyosi2963
+A lot of people from the leaderboard on this contest 😄
+
+{Reactions}
+😂 (3) 
+
+[12/18/2024 12:47] saurabh_0312
+is it correct ?  
+Commented bugs given in the contracts are resolved ??
+please confirm it
+
+
+[12/18/2024 12:53] benterkiii
+yes, they are about resolved bugs
+we need to make sure the mitigation didn't create new bugs
+
+
+[12/18/2024 12:53] saurabh_0312
+okk
+
+
+[12/18/2024 13:01] elminnyc99
+where is the new code with mitigation from zellic ? Can I report the same bugs in comment again?
+
+
+[12/18/2024 13:12] kapten.crtz
+@Etcheverry @edgyxx
+
+
+[12/18/2024 13:38] kyosi2963
+Guys left the chat 😂
+
+{Reactions}
+🥲 (2) 
+
+[12/18/2024 14:50] benterkiii
+If the fix is not efficient or creates new bugs, my advice is to submit the issue
+
+
+[12/18/2024 14:52] benterkiii
+I would recommend u check the C4 report if it doesn't include the bug found beside the comments
+
+
+[12/18/2024 16:01] kyosi2963
+@bob @Tupperware @edgyxx @Etcheverry Guys, can someone check my PT , please 🙏
+
+
+[12/19/2024 06:30] saurabh_0312
+in vestingDeployer contract how many people can hold a  token address??
+
+
+[12/19/2024 06:58] saurabh_0312
+if i submit a med bug but other submit it with high and it get validated. so my med will be changed to high ??
+
+{Reactions}
+👍 
+
+[12/19/2024 07:12] benrai
+All duplicates will have the same severity
+
+{Reactions}
+👍 (2) 
+
+[12/19/2024 09:46] saurabh_0312
+how many owner a token can have ??
+
+
+[12/19/2024 10:02] kyosi2963
+1
+
+
+[12/19/2024 10:23] saurabh_0312
+sponser confirmed it ??
+
+
+[12/19/2024 10:40] kyosi2963
+if i am not mistaked, it's a mapping , so just 1 address can stand for a token
+
+
+[12/19/2024 10:57] dot_cloud
+it is tokenOwner[tokenaddress] = user address
+
+
+[12/19/2024 11:42] chonkov
+It is "tokenOwner[user] = token":
+```
+require(_tokenOwner[msg.sender] == tokenAddress, "SS_VestingDeployer: caller is not the token owner");
+```
+```
+    function setTokenOwner(address token, address _owner) external onlyAdmin {
+        require(_tokenOwner[_owner] == address(0), "SS_VestingDeployer: Existing token have owner");
+        _tokenOwner[_owner] = token;
+    }
+```
+
+{Reactions}
+🙏 (2) 
+
+[12/19/2024 11:46] tusharr1411
+that's possible  !
+I think that's why setTokenOwner is only admin function
+
+
+[12/19/2024 11:58] kann_p
+😼
+
+
+[12/19/2024 11:59] dot_cloud
+ah yess mb
+
+
+[12/19/2024 12:00] .justuzair
+would be a low imo anyways, because it is restricted to admin only and doesn't have any big impact
+cuz it will be trusted
+
+
+[12/19/2024 12:00] kann_p
+🤔
+
+
+[12/19/2024 12:00] kann_p
+sure
+
+{Reactions}
+😂 (3) 
+
+[12/19/2024 13:26] saurabh_0312
+diff is not showing its colour in preview 😭
+
+
+[12/19/2024 13:53] hxl.888
+it does not work on the web preview. But will work fine in git repository.
+
+{Reactions}
+👍 
+
+[12/19/2024 15:15] chupinexx
+its ok that the POC contains just a example scenario explained well and not a foundry test?
+
+{Reactions}
+👍 
+
+[12/19/2024 15:21] thebrittfactor
+❗Wardens - in effort to maintain fairness, please refrain from discussing issues in detail in the public channel. If you have questions for the sponsors, or want to discuss potential issues further with another warden, please ensure you are creating **private threads** for those communications.
+
+{Reactions}
+❤️ (6) 
+
+[12/19/2024 15:25] memorydump55555
+c4 should add penalties for these scenarios as it happens in many contests and it is very unfair on other people.. i dont think it is excessive here or many cases of it but some form of penalty should be added. it doesn't require much to AI your questions or create a private thread with sponsor...
+
+{Reactions}
+👆 (3) 
+
+[12/19/2024 15:56] chupinexx
+?
+
+
+[12/19/2024 15:56] 0xsl1
+yes
+
+{Reactions}
+❤️ 
+
+[12/19/2024 15:57] chupinexx
+thank you
+
+
+[12/19/2024 18:38] itsabinashb
+How do we know that our submitted issues is already known or unknown ??
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/image-86A3C.png
+
+
+[12/19/2024 18:50] mushow
+This just means that there is no known, as the Zellic report hasn't been published, if you found one that's valid in the current code, it'll be accepted
+
+
+[12/19/2024 18:51] itsabinashb
+got it
+
+
+[12/19/2024 20:02] C4
+**🚨 AUDIT ALERT**
+
+@🐺Wardens  The **SecondSwap** audit is now closed! Huge thanks to everyone who participated 🔍, whether you submitted a finding or not.
+
+What's next: The sponsor team and judge will review the findings over the next couple of weeks.
+
+{Reactions}
+👍 (4) 
+
+[12/19/2024 20:07] kann_p
+its time
+
+
+[12/19/2024 20:07] kann_p
+guys
+
+
+[12/19/2024 20:07] kann_p
+what did u guys find
+
+
+[12/19/2024 20:07] kann_p
+something spicy
+
+
+[12/19/2024 20:08] mushow
+reported 4m, 1h, the high might go down to medium but idk meh
+
+
+[12/19/2024 20:23] rouhsamad
+That one high with 10000 dups 👀
+
+
+[12/19/2024 20:26] unpluggedtj
+Which one?
+
+
+[12/19/2024 20:27] rouhsamad
+First one 😅
+
+{Reactions}
+😂 (4) 
+
+[12/19/2024 20:28] unpluggedtj
+You can give short brief, contest is over, I don't have backstage access.
+
+
+[12/19/2024 20:29] rouhsamad
+Bro idk if we can talk about issues
+
+
+[12/19/2024 20:29] rouhsamad
+Not publicly here
+
+
+[12/19/2024 20:29] unpluggedtj
+Ohk..not familiar with code4rena
+
+
+[12/19/2024 20:30] memorydump55555
+https://discord.com/channels/810916927919620096/1299446629652365362/1317395758676443136 this high? 😂
+
+{Reactions}
+🤣 (3) 
+
+[12/19/2024 20:30] rouhsamad
+Is that a high? 🤣
+
+
+[12/19/2024 20:30] unpluggedtj
+There's no way for me to look at other findings right?
+
+
+[12/19/2024 20:31] memorydump55555
+i didn't even bother checking it haha it's auto dupe heaven
+
+{Reactions}
+😂 (3) 
+
+[12/19/2024 20:31] memorydump55555
+not without backstage no
+
+
+[12/19/2024 20:31] rouhsamad
+But seriously the first one has many dupes
+The second one was a little bit harder but still dups
+
+{Reactions}
+👍 (2) 
+
+[12/19/2024 20:31] shiazinho
+after 40-60 days the audit report is published
+
+
+[12/19/2024 20:31] memorydump55555
+🤣 🤣 🤣 i really wouldn't say this publicly bro...
+
+
+[12/19/2024 20:32] unpluggedtj
+rip, now I have to sleep wondering what those issues were.
+
+
+[12/19/2024 20:32] .justuzair
+Okay nobody saw anything 🌚😂
+
+{Reactions}
+💀 (6) 
+
+[12/19/2024 20:33] .justuzair
+Take rest ser you did great 
+It’s part of the process to miss bugs and learn from it
+
+
+[12/19/2024 20:33] unpluggedtj
+Not worried about missing, kinda more of delayed feedback loop which I am not used to coming from other platforms
+
+
+[12/19/2024 20:34] .justuzair
+Hmm true but nothing can be done so there’s that
+
+{Reactions}
+👍 
+
+[12/19/2024 20:34] rouhsamad
+Wait i missed that, what did he say
+
+{Reactions}
+🙂 
+
+[12/19/2024 20:35] unpluggedtj
+Ok just tell me the count of submission guys, or I will create a zk proof myself
+
+{Reactions}
+😭 (3) 
+
+[12/19/2024 20:35] memorydump55555
+see no evil, hear no evil, speak no evil 😉
+
+{Reactions}
+🙏 (2) ☃️ 4739_Skeletor (2) 
+
+[12/19/2024 20:36] brivan
+I did that for you, here's your proof: 337b02741a9561b611d394e835278d377c8eb54b0fa32f9923e4e90ddb5582b5
+The number of submissions is encoded there
+
+{Reactions}
+💀 (8) 
+
+[12/19/2024 20:38] rouhsamad
+Wait is this private key of address(0)?
+
+{Reactions}
+🤣 (4) 
+
+[12/19/2024 20:39] artur9905
+1075?
+
+
+[12/19/2024 20:40] unpluggedtj
+Don't trust, verify
+
+
+[12/19/2024 20:40] brivan
+I don't know how you did that, but it's correct. Gg
+
+{Reactions}
+🔥 (4) 
+
+[12/19/2024 20:40] artur9905
+brute force from 500 to 1500
+
+{Reactions}
+🧠 (12) 🔥 (2) 
+
+[12/19/2024 20:42] shiazinho
+bro is cooking
+
+
+[12/19/2024 20:54] mushow
+on what algorithm?
+
+
+[12/19/2024 21:16] nem0thefinder
+where i can view submissions as in codehawks
+
+
+[12/19/2024 21:17] mushow
+You need to have a specific role, only be obtained on certain conditions
+
+
+[12/19/2024 21:22] waydoum
+SHA-256
+
+{Reactions}
+👍 (2) 🚀 (2) 
+
+[12/19/2024 21:34] 0xdanielc
+jeez you're smart, gotta work harder to keep up lmao
+
+
+[12/19/2024 21:41] mushow
+I thought he used different algorithms, didn't think at first of sha256 xd
+
+
+[12/19/2024 21:41] mushow
+or used some kind of salt
+
+
+[12/20/2024 06:58] zdravkohr
+Brute force the whole SHA family 😄
+
+
+[12/20/2024 07:03] 0xhuntoor
+Train forge again?
+
+
+[12/20/2024 09:15] bro_are_u_ok
+hey,guys
+
+
+[12/20/2024 11:15] itsabinashb
+To ease my PoC i edited the SecondSwap_VestingDeployer.deployVesting() a bit -  i just returned the created vesting address. But I forgot to mention this in report. Will it be okay ? @CloudEllie @3DOC
+
+{Reactions}
+👍 
+
+[12/20/2024 14:50] foufrix
+https://www.dcode.fr/sha256-hash input your hash it checks into a database of hash for equality, input hash into first page of this site to find % of algo used to hash
+
+{Embed}
+https://www.dcode.fr/sha256-hash
+SHA-256 - Password SHA256 Hash Decryption - Online Decoder/Encoder
+Tool to decrypt/encrypt SHA-256. The SHA-256 hash is the US federal standard that matches an hexadecimal 64-character fingerprint to an original binary data.
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/dcode-FAD24.png
+
+
+[12/20/2024 14:53] foufrix
+I've done the same as you, proper `SecondSwap_VestingDeployer.deployVesting` with returns of the StepVest address in one of my issue if needed (the only High I reported), I don't have backstage access though so I cannot link anything
+
+{Reactions}
+👍 
+
+[12/20/2024 15:24] 0xloscar01
+In Foundry, you can get it from the logs like this:
+
+```javascript
+        vm.recordLogs();
+
+        vestingDeployer.deployVesting({
+            tokenAddress: address(vestingToken),
+            startTime: block.timestamp,
+            endTime: block.timestamp + 200 days,
+            steps: 200,
+            vestingId: "1"
+        });
+
+        Vm.Log[] memory entries = vm.getRecordedLogs();
+        assertEq(entries.length, 3);
+
+        // Check the event signature
+        assertEq(
+            entries[2].topics[0],
+            keccak256("VestingDeployed(address,address,string)")
+        );
+        assertEq(entries[2].emitter, address(vestingDeployer));
+
+        (address deployedVesting, ) = abi.decode(
+            entries[2].data,
+            (address, string)
+        );
+
+        SecondSwap_StepVesting vesting = SecondSwap_StepVesting(
+            deployedVesting
+        );
+```
+
+{Reactions}
+👍 (2) 
+
+[12/20/2024 16:20] owenzo
+lol why are homies asking me what I submitted?
+
+
+[12/20/2024 16:36] memorydump55555
+how many total issues? is the repo public for backstage?
+
+
+[12/20/2024 17:09] rzizah
+they are excited to know the solo high one
+
+{Reactions}
+❤️ (3) 
+
+[12/20/2024 17:09] rzizah
+@55555
+
+
+[12/20/2024 17:24] 0xdanielc
+i reckon they wanna learn from you, you got a solo high in 5 minutes right so i can't blame anyone for wanting to learn your methodology
+
+{Reactions}
+❤️ (3) 
+
+[12/20/2024 19:06] owenzo
+it must be the decimals finding
+
+
+[12/20/2024 19:06] owenzo
+omg
+
+
+[12/20/2024 19:06] owenzo
+is this true
+
+
+[12/20/2024 19:07] owenzo
+am I about to bag my first reward ever in a solo audit contest
+
+
+[12/20/2024 19:07] owenzo
+OMG I'm fucking excited.
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/Screenshot_2024-12-20_at_22.07.28-3A09B.png
+
+{Reactions}
+❤️ (6) 👏 
+
+[12/20/2024 19:55] memorydump55555
+wow lol
+
+
+[12/20/2024 19:56] memorydump55555
+so many contests and still 1k submission here? hmmm
+
+
+[12/20/2024 19:56] memorydump55555
+sounds like there are missed opportunities on other platforms 👀
+
+
+[12/20/2024 20:25] benterkiii
+you guys were talking about the one related to penalty fee??
+
+
+[12/20/2024 20:38] mushow
+fk if it's what I think, I forgot to report it
+
+
+[12/20/2024 20:45] chaos304
+aaaaaaaah I see it now oh well lol
+
+
+[12/20/2024 21:09] zdravkohr
+Why 30k tho
+
+
+[12/20/2024 21:10] mushow
+maybe 10 ether was 30k$ usd at the time I wrote the comment?
+
+
+[12/20/2024 21:17] chaos304
+that's not how it works
+10 ether is just an alias for 10e18
+
+{Reactions}
+👍 (2) 
+
+[12/20/2024 21:19] mushow
+yes so?
+
+
+[12/20/2024 21:21] mushow
+it's going to take 10ether from your wallet, whether you want it written as 10 ether or 10e18 wei, and 10 ether being around 3K$ at the time, I wrote 30k$?
+
+{Reactions}
+👍 
+
+[12/20/2024 21:24] chaos304
+https://docs.code4rena.com/roles/wardens/submission-policy
+I'd love to explain in detail but "publishing or discussing findings publicly prior to report publication is grounds for immediate forfeit of award and disqualification from any future C4 events and activities"
+so I'd rather not 😛
+
+{Embed}
+https://docs.code4rena.com/roles/wardens/submission-policy
+Submission policy | Code4rena
+
+{Reactions}
+👍 (2) 
+
+[12/20/2024 21:28] mushow
+I just didn't understand it was using USDT, I thought ETH was also accepted. Thanks.
+
+{Reactions}
+👌 
+
+[12/20/2024 22:14] benterkiii
+didnt know that
+
+
+[12/20/2024 22:41] mushow
+Me neither, especially post contest, unless it's critical / live protocol.
+
+
+[12/21/2024 01:30] 0xstalin
+actually, it will attempt to take 10e18 of USDT from the wallet, but, 10e18 is 10billion USDT 🙂
+And, there is only one wallet with that much USDT (Binance 20) => https://etherscan.io/token/0xdac17f958d2ee523a2206206994597c13d831ec7#balances
+
+
+[12/21/2024 01:54] dot_cloud
+penalty only happen if you unlist  before 120 second after listing it
+that bajillion usdt fee just there to scare you
+
+{Reactions}
+✅ 
+
+[12/21/2024 07:05] tusharr1411
+10 trillion USDT* and nobody has that much...
+
+
+[12/21/2024 07:54] dulgiq
+America has... in debt:kek:
+
+{Reactions}
+😂 (9) 
+
+[12/21/2024 07:58] mushow
++ it can be changed so is it low/invalid?
+
+{Reactions}
+✅ 
+
+[12/21/2024 08:29] dot_cloud
+malicious admin input? low/info max IMO 😁
+
+
+[12/21/2024 11:19] owenzo
+How long does judging take by the way?
+
+
+[12/21/2024 11:21] xkeywordx
+It is not malicious admin input, since the value is hardcoded in the constructor of MarketplaceSettings contract so this will always happen.
+
+It means that the early unlisting functionality of the marketplace is broken because users can never use it
+
+
+[12/21/2024 11:22] xkeywordx
+The admin is not the one providing it as an input param during deployment, it is hardcoded. The unlisting fee will always be set to 10e18, but the fee is supoosed to be paid in USDT that has 6 decimals
+
+
+[12/21/2024 11:50] rouhsamad
+it should be maximum low/info, as admin can change it easily using setPenaltyFee 🤷‍♂
+
+{Reactions}
+👍 (3) 
+
+[12/21/2024 11:50] kyosi2963
+There is an admin function as well that can change this fee at any time, should be low
+
+{Reactions}
+👍 (2) 
+
+[12/21/2024 11:53] mushow
++ as said, the penalty is only during the first 2 minutes, to avoid people listing and unlisting directing (imo) its intended to have a penalty, maybe not that high, but still a high penalty taking into account USDT decimals then.
+
+
+[12/21/2024 11:54] dot_cloud
+it is to prevent spamming list unlist I think
+thats why the duration is only the first 120 second for the penalty to kick in
+
+{Reactions}
+👍 
+
+[12/21/2024 13:10] y0ng0p3
+The fact that it's easy to fix doesn't remove the impact sir
+
+
+[12/21/2024 13:12] dot_cloud
+hmmm what is the impact?
+
+
+[12/21/2024 13:13] benterkiii
+unlist vesting func will be dosed in that period i think
+
+
+[12/21/2024 13:13] dot_cloud
+yup, design choice
+
+{Reactions}
+😂 
+
+[12/21/2024 13:13] benterkiii
+but it is a partial dos
+
+
+[12/21/2024 13:14] benterkiii
+are you saying it is designed to set te penalty fee to 10 trillion ?
+
+{Reactions}
+4739_Skeletor (3) 
+
+[12/21/2024 13:19] rouhsamad
+i say there is an impact for sure, but mitigation very easy, admin can just send one more tranasction after deploying the contracts and fix it, so i dont know if its High/Medium issue, unless admin wants to temporary DDOS users for no reason and not receive any penalty fees
+
+
+[12/21/2024 14:43] mrfalsegenius
+What impact? What high? What mid? It uses safeTransferFrom which would fail because of "Insufficient 10 Trillion allowance/balance". 
+
+Low at best
+
+{Reactions}
+👍 (3) 
+
+[12/21/2024 15:36] tusharr1411
+that too with 100s of dups
+
+{Reactions}
+🤣 
+
+[12/21/2024 15:49] mrfalsegenius
+Yeah, add dups to the mix, and you'll see the light at the end of tunnel fading away. 
+
+Let's just forget about this dup...I mean vulnerability and move on to other things.
+
+
+[12/21/2024 21:32] benterkiii
+That Dup is up to the judges decision now.
+
+{Reactions}
+💯 
+
+[12/21/2024 23:05] xkeywordx
+I love how people downgrade all issues to Low/Info :))
+
+There is an early unlisting feature that is completely broken, but no problem. What if minUnlistPeriod would've been 2 months instead of 2 minutes?
+
+
+[12/21/2024 23:06] xkeywordx
+That would've been an instant High because esentially users have their funds stuck for 2 months, right? Now, because they are only stuck for 2 minutes, there's no issue?
+
+The bug is the same, it's just the minimum lock time that's different.
+
+
+[12/22/2024 00:12] 0xstalin
+nop, funds would not be locked for 2 months 🙂
+Admin can simply update the value. If, big emphasis on if, there were no way to update the variable's value, that would be a totally different story, either way, let's not start a fight before the real war 🙂 let's leave the fun for PJQA 😉
+
+{Reactions}
+⚔️ (4) 👍 
+
+[12/22/2024 12:03] .justuzair
+Yup I understand the concern 
+I still reported them as low or QA just because it is restricted to admin and again your point of locking period of 2 months is correct but admin can also change it before that time so it’s more like an info 
+At least that’s what I feel 
+Let’s leave it up to a judge 🫡😅
+
+
+[12/22/2024 12:05] .justuzair
+Lmao 
+That’s exactly why I feel it to be a QA 
+
+P.S. if it were up to me all would be high mediums, but that’s not how it works 😂😂
+
+And also if it got downgraded I’d be mad to not get paid for a valid finding 😂
+
+
+[12/22/2024 13:11] saurabh_0312
+How many total submission??
+
+
+[12/22/2024 13:11] saurabh_0312
+Is this code base has many bugs or just 2 3 bugs
+
+
+[12/22/2024 13:16] .justuzair
+Far more than what I have submitted and it’s more than this 😂
+
+
+[12/22/2024 13:18] saurabh_0312
+Why these bugs hide from me 🥲
+
+
+[12/22/2024 13:19] saurabh_0312
+I will be broken if a finding i didn't submit came out as valid 😪
+
+
+[12/22/2024 14:11] memorydump55555
+many bugs.. i found 7 with PoC and missed a few others so there was quite a lot
+
+
+[12/22/2024 14:12] memorydump55555
+payouts will be low though 😦 everything is dupe but wp to us and the participators
+
+
+[12/22/2024 14:13] saurabh_0312
+Shit 7 bugs.. how you found then
+
+
+[12/22/2024 14:14] memorydump55555
+i just read the code 😛 but it took me a couple days to understand the logic with no docs.. around 3-4 days nothing found, then everything started popping out
+
+
+[12/22/2024 16:30] unpluggedtj
+excluding lows or including?
+
+
+[12/22/2024 17:23] memorydump55555
+i don't report lows only med / high
+
+{Reactions}
+❤️ (5) 💀 (2) 
+
+[12/22/2024 18:18] saurabh_0312
+I will be mad if my Submitted bug in low gets valid med
+
+{Reactions}
+😂 (12) 🫠 
+
+[12/23/2024 05:41] 0xpetern
+Has the judging started?
+
+
+[12/24/2024 11:53] thatguyluffy
+broo
+
+
+[12/24/2024 17:20] saurabh_0312
+Any update
+
+
+[12/24/2024 17:20] saurabh_0312
+About judging
+
+
+[12/24/2024 17:23] horpheyhemmy18
+Damn! 
+First timers don't know anything about our issue submitted 🙃🙂‍↔️
+We'll be ping or what or we just agree whatever judges do
+
+{Reactions}
+😁 (4) 
+
+[12/24/2024 18:57] nem0thefinder
+They are cooking the report silently😁
+
+{Reactions}
+😅 (6) 
+
+[12/25/2024 05:43] owenzo
+I'm already cooked already.
+
+{Reactions}
+😂 (3) 
+
+[12/26/2024 06:48] saurabh_0312
+i like the codehawks and sherlock judging transparency more..
+
+
+[12/26/2024 06:49] saurabh_0312
+Because there my low can also changed to high and vice versa
+
+
+[12/26/2024 10:33] memorydump55555
+the same exists on c4.. what do you mean?
+
+
+[12/26/2024 10:34] saurabh_0312
+In c4 the bugs from low does not chnages to high or mid
+
+
+[12/26/2024 10:34] saurabh_0312
+This is written on contests
+
+
+[12/26/2024 10:35] memorydump55555
+oh lol.. i assumed they did because mediums can get changed to high (if incorrectly reported) xD sorry
+
+
+[12/26/2024 11:28] 0xsl1
+it's only a temporary technical constraint due to a switch from having submissions on github to having them directly on c4 app
+
+
+[12/26/2024 11:28] saurabh_0312
+yeah
+
+
+[12/26/2024 13:32] 0xsidshinchan
+Hi I am new here submitted 4 bugs any idea about the judging period when it's going to end
+
+
+[12/26/2024 14:41] saurabh_0312
+it take around 1 month for the final report i guess
+
+
+[12/26/2024 17:28] .justuzair
+can you explain a little, i dont get what it means, perhaps its something related to the SRs (backend role) ?
+
+
+[12/26/2024 18:58] 0xsl1
+I don't know the exact reasons but such functionality just does not seem to exist yet. I suppose they were trying to ship the update as fast as possible and then add things on the fly
+
+
+[12/27/2024 07:58] 0xpetern
+No, it's not a temporary technical constraint. It is an update to the judging rule.
+
+The change was effected shortly before the c4 app became a thing. Not because of the c4 app.
+
+It's more  on making judging more effective and discouraging auditors from submitting a poor report as low hoping to upgrade to med or high.
+
+
+[12/27/2024 08:01] 0xsl1
+https://discord.com/channels/810916927919620096/810936719003090974/1316369519559704648
+
+
+[12/27/2024 08:29] c0pp3rscr3w3r
+if medium is downgraded to low, its not paid right?
+
+{Reactions}
+👍 (7) 🥲 (2) 
+
+[12/28/2024 03:49] saurabh_0312
+Any updates on number of valid bugs in judging
+
+
+[12/28/2024 12:31] fernan4441
+After requesting the backstage role, where exactly am I supposed to see that I got the backstage role?
+
+
+[12/28/2024 13:00] lohaclohell
+In the backstage 👀
+
+
+[12/28/2024 14:16] benrai
+You will see additonal channles I think. But the team is on vacation so it might take a while until you get the new role
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/image-440DC.png
+
+{Reactions}
+👍 
+
+[12/28/2024 19:24] kobbyeugene
+So no one is judging now?
+
+{Reactions}
+🤣 (5) 
+
+[12/29/2024 08:17] owenzo
+we getting our results in April mark this comment lol
+
+
+[12/29/2024 08:17] owenzo
+you didnt notice they way this audit was being postponed almost every day
+
+
+[12/29/2024 08:18] kobbyeugene
+Mm... then lemme jay my eye from this contest
+
+
+[12/29/2024 09:56] benrai
+The judge is working on it, don't worry. Currently the issues are already grouped together and marked as valid / invalid. And before you ask, there are currently 13 valid H/M issues but consider this not to be the final result
+
+{Reactions}
+👀 
+
+[12/29/2024 10:15] kyosi2963
+13 issues ? Curious to read the report , for sure i missed a lot...
+
+{Reactions}
+👍 (3) 
+
+[12/29/2024 10:18] kobbyeugene
+13 is crazy 💀
+Hoping to see about 20 H/M valid bugs
+
+{Reactions}
+💀 
+
+[12/29/2024 10:18] kobbyeugene
+Thanks for the update
+
+{Reactions}
+👍 (2) 💯 
+
+[12/29/2024 13:55] 0xodus_
+13? Damn
+
+
+[12/30/2024 05:39] saurabh_0312
+hoping mines are valid
+
+
+[01/01/2025 10:42] saurabh_0312
+is there escalation process in code4rean ??
+
+{Reactions}
+👎 
+
+[01/01/2025 21:53] 0xellipticcurve
+I participated in this contest and I haven't received my feedback since last year
+
+{Reactions}
+🤣 (10) 
+
+[01/01/2025 22:33] kann_p
+great joke
+
+{Reactions}
+😂 (12) 
+
+[01/01/2025 22:33] kann_p
+:hi5:
+
+
+[01/02/2025 14:14] z3nithpu1se
+manh back in the day feedback used to come under a month, it took a year this time smh
+
+{Reactions}
+😵‍💫 (3) 😂 (4) 
+
+[01/02/2025 14:36] kann_p
+a year and 1 month
+
+{Reactions}
+👀 (2) 
+
+[01/02/2025 16:40] owenzo
+I bet by the time I learn how to audit in rust they still wouldnt be done with judging.
+
+{Reactions}
+😂 (4) 
+
+[01/03/2025 15:51] lohaclohell
+Results after gta 6
+
+{Reactions}
+😂 (9) 💀 
+
+[01/03/2025 19:40] nem0thefinder
+why the judging process is so slow ??
+
+
+[01/03/2025 20:41] xkeywordx
+Hello guys, is there a way for a contest participant to check their own submissions? I forgot what/ how many issues I submitted. I don't refer to checking their status such as valid/invalid, I just want to know if it's possible to check my own submissions on GitHub or somewhere.
+
+
+[01/03/2025 20:49] benterkiii
+
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/Capture_decran_2025-01-03_214759-8863D.png
+
+
+[01/03/2025 20:50] benterkiii
+but we can't see the status without the SR role
+
+
+[01/03/2025 23:03] mushow
+There are people working, those also take some time-off for Christmas / New Year. That obviously leads to a slower pace of judging / escalations & more. Just a typical December month for any business.
+
+
+[01/04/2025 06:24] .justuzair
+Go to findings -> secondswap 
+You will be able to see all ser
+
+
+[01/04/2025 08:44] xkeywordx
+Didn't know this "Fiundings" tab exists, lol. Thank you
+
+{Reactions}
+😂 👌 
+
+[01/04/2025 08:44] xkeywordx
+got it, thanks
+
+{Reactions}
+🫡 
+
+[01/04/2025 14:05] owenzo
+its 4th Jan guys. I think its time for the judging team to put the fries in the bag and come clean that they F'ed up somewhere lol.
+
+{Reactions}
+👎 (12) 
+
+[01/04/2025 15:03] robin_bl4z3
+it was literally holidays last month
+
+
+[01/04/2025 15:37] z3nithpu1se
+I think removing around 12 days for holidays,they got like 14 days as of the moment and i think we should expect it next week
+
+
+[01/04/2025 16:15] kyosi2963
+Can someone with SR role to share the status of the contest?
+
+
+[01/04/2025 16:25] benterkiii
+it is on the judging phase obviously
+
+
+[01/04/2025 17:54] memorydump55555
+normal progress. it was just christmas time + new year.... with a TON of submissions on this contest. i think results will be early feb, and it is what it is. stop complaining.
+
+{Reactions}
+🐐 (10) 👆 (3) 🥂 (5) 👍 (6) 🤔 👌 (2) 
+
+[01/05/2025 16:53] owenzo
+Guys I think Rust finna take over the web3 space this year
+
+{Reactions}
+🫡 (2) 
+
+[01/05/2025 18:35] saurabh_0312
+How to find rust audit contest
+
+
+[01/06/2025 03:54] 0xaudron
+surely it'll mate
+
+
+[01/08/2025 15:50] saurabh_0312
+Any update on Result
+
+
+[01/08/2025 16:35] thebrittfactor
+We're currently in the judging phase. I anticipate we're still a week or two out from awards being announced, given the amount of submissions.
+
+{Reactions}
+👍 (18) 
+
+[01/09/2025 04:14] saurabh_0312
+okk
+
+
+[01/09/2025 16:42] foufrix
+Thanks for the update 🙏 , good luck with all the submissions
+
+
+[01/14/2025 19:56] lohaclohell
+Any swaps ?
+
+
+[01/14/2025 19:56] lohaclohell
+Or just the first?
+
+
+[01/15/2025 02:13] dot_cloud
+the second one
+
+
+[01/15/2025 06:11] frkln
+How’s the judging progress?
+
+{Reactions}
+👀 (10) 🐢 (3) 🙂 
+
+[01/15/2025 12:49] z3nithpu1se
+it would have become a third one by now🗣️🗣️
+
+
+[01/17/2025 10:12] kyosi2963
+Is there any progress on this contest ? 😄
+
+
+[01/17/2025 14:58] fernan4441
+I hope the judges won't miss any valid dups between 1200 issues since wardens cannot warn them.. good luck with all the submissions
+
+{Reactions}
+😂 (3) 
+
+[01/18/2025 09:11] owenzo
+guys give it till Feb.
+
+{Reactions}
+😂 (3) 
+
+[01/18/2025 09:24] tusharr1411
+you're too excited for your solo high
+
+{Reactions}
+😂 (11) 
+
+[01/18/2025 11:02] owenzo
+you were suppose to forget about it lol😂
+
+{Reactions}
+🤣 (2) 
+
+[01/18/2025 11:06] tusharr1411
+I'll try  😄
+
+
+[01/18/2025 11:07] tusharr1411
+But seriously, judging process is too slow.
+
+
+[01/18/2025 11:51] nadir_khan_sec
+when was this contest?
+
+
+[01/18/2025 11:54] tusharr1411
+last year
+
+
+[01/18/2025 12:03] nadir_khan_sec
+What is a usual wait time for judging? Comp only ended Dec 19, then there were holidays
+
+
+[01/18/2025 14:24] tusharr1411
+Not complaining, but in general, the judging process is slow (at least compared to other platforms...)
+
+
+[01/18/2025 14:29] tusharr1411
+that too when there is no escalations for wardens 🙂
+
+{Reactions}
+10_10 (10) ✅ (4) 
+
+[01/18/2025 17:07] nadir_khan_sec
+yeah..Well, what can we do mate
+
+
+[01/18/2025 17:26] owenzo
+I'm out here fighting demons with rust.
+
+
+[01/18/2025 18:23] nem0thefinder
+can you share resources bro
+
+
+[01/19/2025 06:59] itsabinashb
+Why judging is that slow !! its been almost 1 month & PJQA has not started yet.
+
+{Reactions}
+👎 
+
+[01/19/2025 07:48] tusharr1411
+it was Christmas + new year 😀
+
+
+[01/19/2025 09:10] evokid
+Any contest usually in C4 could take from 2 to 3 months to get the results and sometimes more. Judges are not slow, it's the process itself and it's conditions and circumstances. Meanwhile I suggest everyone can join another contest and focus on progress, the results will come out anyway.
+
+{Reactions}
+✅ (7) 🤯 😂 this 
+
+[01/19/2025 09:23] nadir_khan_sec
+Very well said
+
+{Reactions}
+🙏🏻 
+
+[01/19/2025 14:42] 4gontuk
+This man knows
+
+{Reactions}
+🫡 (2) 
+
+[01/19/2025 18:26] owenzo
+text me on X my username is 0xenzo_eth
+
+
+[01/19/2025 20:23] 0xellipticcurve
+I have a special affection for code4rena because it was the leading platform when I first started researching and it was the first platform where one of my vulnerabilities was accepted. However, the slow feedback loop is problematic for researchers, especially beginners... By the time I receive feedback on the vulnerabilities I submitted in this contest, I'll likely have forgotten exactly what the protocol was like, as I'll have already participated in several other contests. Anyway, that's the game, let's deal with it...
+
+{Reactions}
+💯 (12) ☝🏻 
+
+[01/19/2025 20:48] tusharr1411
+btw what is current status of judging ... ?
+has PJQA started ?
+
+
+[01/19/2025 20:53] tusharr1411
+could someone with SR role confirm this, please
+
+
+[01/20/2025 00:52] rouhsamad
+Not started yet
+
+{Reactions}
+🫠 
+
+[01/20/2025 00:52] rouhsamad
+.
+
+
+[01/20/2025 07:04] owenzo
+damn bro really talked for everyone.
+
+{Reactions}
+🤝 
+
+[01/20/2025 07:06] saurabh_0312
+site is under maintanance ,
+are the adding something new or just regular maintanance??
+
+
+[01/20/2025 13:43] trtrth
+I observed that c4 judging is somehow becoming slower after Zellic acquisition
+
+
+[01/20/2025 14:22] saurabh_0312
+how many med and high ?
+
+
+[01/20/2025 14:23] brivan
+Can't disclose that.
+
+
+[01/20/2025 14:23] zdravkohr
+But they were asking about pjqa
+
+
+[01/20/2025 14:24] saurabh_0312
+ok ok
+
+
+[01/20/2025 14:25] brivan
+Oh 💀 I thought they asked whether judging started or not, apologies @rsam_eth
+
+{Reactions}
+❤️ 
+
+[01/20/2025 14:27] tusharr1411
+So the judging just started only a week ago?
+
+{Reactions}
+🤯 (6) 😂 (3) 
+
+[01/20/2025 14:27] tusharr1411
+wow!
+
+
+[01/20/2025 14:27] rouhsamad
+No worries, i dont have backstage tho i just quoted someone with backstage
+
+
+[01/21/2025 16:52] kobbyeugene
+Honestly, I'm not hacking on code4arena anymore. This is my first contest and I've done other contests on other platforms, I've seen the reports and still... code4arena isn't done with second swap. This is sad
+
+{Reactions}
+😓 (7) empathy (2) 
+
+[01/21/2025 16:57] tusharr1411
+:thisisfine:
+
+
+[01/21/2025 17:52] saurabh_0312
+
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/image0-64EF0.gif
+
+
+[01/22/2025 15:26] frkln
+what is the status now
+
+{Reactions}
+👀 (4) 
+
+[01/22/2025 17:36] horpheyhemmy18
+
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/image0-CDF34.gif
+
+{Reactions}
+😂 (4) 
+
+[01/23/2025 05:50] qaq09021
+https://tenor.com/view/kitten-cat-kitty-sleepy-tired-gif-9176539601255345484
+
+{Embed}
+https://tenor.com/view/kitten-cat-kitty-sleepy-tired-gif-9176539601255345484
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/kitten-cat-EB922.png
+
+{Reactions}
+😂 (13) 🥲 (2) 
+
+[01/25/2025 15:42] samueltroydomi
+I have a question for all the agents in here, is this normal for C4 to take this long to wrap up a contest? or is this a new thing?
+
+
+[01/25/2025 15:45] 0xmsf14
+I’d like to know the answer to this too, since we now have a lot more contests to choose from
+
+
+[01/25/2025 16:01] benrai
+The contest is currently in Post-Judging QA so the end is near 😉
+
+
+[01/25/2025 17:15] owenzo
+my solo-high be losing its aura on each day.
+
+{Reactions}
+😂 (24) ohno 
+
+[01/26/2025 06:28] z3nithpu1se
+Bro's grandson after judging ends
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/image-70D0E.png
+
+{Reactions}
+😂 (18) 
+
+[01/27/2025 19:33] rouhsamad
+😐
+
+{Reactions}
+😐 (6) 
+
+[01/27/2025 19:43] deeney3866
+You again..🥺👀
+
+{Reactions}
+😐 (3) 
+
+[01/28/2025 12:16] kyosi2963
+I believe today/tomorrow we can have the results hopefully
+
+
+[01/28/2025 12:27] saurabh_0312
+hoping mine get validated
+
+
+[01/28/2025 12:28] saurabh_0312
+do you have sr role
+
+
+[01/28/2025 12:29] tusharr1411
+It was in PJQA 2 days ago...
+ Lambo took 5 days even after ending PJQA to announce the results ... and that too with fewer submissions compared to this...
+So, I don't think the result will be out for at least 10 more days, considering the number of submissions
+
+{Reactions}
+👍 (2) 
+
+[01/28/2025 12:33] tusharr1411
+and we don't even know when PJQA started as someone with SR role mentioned on Jan 20, that the judging for this contest only started a week ago.
+
+
+[01/28/2025 12:47] kyosi2963
+Nope, just hoping 😄
+
+
+[01/28/2025 12:47] saurabh_0312
+👀 💀
+
+
+[01/29/2025 08:44] 0xaman.
+wen??
+
+
+[01/29/2025 19:00] rouhsamad
+god knows
+
+
+[01/29/2025 22:52] takarez
+Judge evaluating the pjqa comments and very fast.
+
+
+[01/29/2025 23:14] tusharr1411
+how many findings ?
+
+{Reactions}
+❓ (2) 💯 
+
+[01/30/2025 10:01] kobbyeugene
+👀💀👻
+
+
+[01/30/2025 10:32] dot_cloud
+wenser
+
+
+[01/30/2025 10:35] shiazinho
+😳
+
+
+[01/30/2025 10:52] kann_p
+a lot
+
+{Reactions}
+🫠 (3) 
+
+[01/30/2025 14:06] 0xgondarxyz
+I really wonder how I did in this contest. I was 2 months ago, didn't know much, and don't remember a single line of code from it
+
+
+[01/30/2025 14:07] brivan
+PJQA is re-opened.
+
+
+[01/30/2025 14:08] 0xsl1
+Not much comments left though it seems to me
+(could be wrong)
+
+
+[01/30/2025 14:16] owenzo
+trust the process.
+
+
+[01/30/2025 14:28] francise._
+you really seem to have gone all out for this one
+
+{Reactions}
+🤣 (2) 
+
+[01/30/2025 14:30] owenzo
+lol
+
+
+[01/30/2025 14:34] francise._
+Goodluck fren!
+
+
+[01/30/2025 15:24] saurabh_0312
+any update for result
+
+
+[01/30/2025 15:54] 0xgondarxyz
+what does PJQA stand for? What's that?
+
+
+[01/30/2025 16:03] 0xsorrynotsorry
+I think you will have many answers here: https://docs.code4rena.com/
+
+{Embed}
+https://docs.code4rena.com/
+Code4rena | Code4rena
+Community-driven competitions for smart contract audits
+
+{Reactions}
+thankyou 
+
+[02/01/2025 09:25] saurabh_0312
+😭 any update
+
+
+[02/01/2025 12:06] 0xodus_
+https://tenor.com/view/mr-bean-mrbean-bean-mr-bean-holiday-mr-bean-holiday-movie-gif-3228235746377647455
+
+{Embed}
+https://tenor.com/view/mr-bean-mrbean-bean-mr-bean-holiday-mr-bean-holiday-movie-gif-3228235746377647455
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/mr-bean-mrbean-9624D.png
+
+{Reactions}
+😂 
+
+[02/01/2025 13:30] rouhsamad
+will results be out any time soon? like in 10 days
+
+
+[02/01/2025 13:31] tusharr1411
+i don;t think...
+
+
+[02/01/2025 16:09] francise._
+Yeah kinda sums up what happens when competitions don't happen in parallel plus the holidays
+
+
+[02/01/2025 16:46] nicks_2.07_
+Yes
+
+{Reactions}
+✅ (2) 
+
+[02/02/2025 01:07] saurabh_0312
+I don't want to see zero valid after waiting this long 😊
+
+{Reactions}
+🔥 (4) 😂 (5) 
+
+[02/02/2025 02:28] frkln
+PJQA ended yet?
+
+
+[02/02/2025 06:00] 0xaudron
+will be painful 😂
+
+{Reactions}
+🙂 (3) 😭 (2) 
+
+[02/02/2025 07:39] tusharr1411
+SRs ??
+
+
+[02/03/2025 12:37] rouhsamad
+Today is the day?
+
+{Reactions}
+👀 (5) 🇼 (9) 🇪 (9) 🇳 (9) goose (4) 📅 4️⃣ 6️⃣ 9️⃣ 
+
+[02/03/2025 13:07] tusharr1411
+dear SRs...any update on PJQA ?
+
+
+[02/03/2025 14:43] francise._
+@Abdessamed any help on updates on this one?
+
+
+[02/03/2025 14:55] brivan
+I'm not included in this contest, but I checked the dashboard now, most of the PJQA comments are addressed by the judge, few left.
+
+
+[02/03/2025 14:56] brivan
+Duplicates are insane, better to not hope much
+
+{Reactions}
+😢 (5) psyduck (2) 
+
+[02/03/2025 15:02] francise._
+Awesome, thanks!
+
+
+[02/03/2025 15:36] saurabh_0312
+i am just hoping for my valid after waiting for 2 months😢
+
+{Reactions}
+😂 (4) 
+
+[02/03/2025 16:21] francise._
+All on God
+
+{Reactions}
+🙂 (3) 👍 
+
+[02/03/2025 17:13] the_code_doctor
+What did you find? 😉 You could share it with everyone now. 😉
+
+{Reactions}
+😂 (3) 
+
+[02/03/2025 17:21] kyosi2963
+You mean in general over all of the issues or the QA report ?
+
+
+[02/03/2025 18:04] sentient_stick
+Yes
+
+
+[02/03/2025 18:07] kyosi2963
+Which one 😄
+
+
+[02/03/2025 18:07] kyosi2963
+I asked “a” or “b” 😆
+
+{Reactions}
+😂 (3) 
+
+[02/03/2025 18:31] francise._
+When he says "better to not hope much"
+
+I think it means the likelihood of getting a high payout it really low across the board😂
+
+But never say never
+
+
+[02/03/2025 18:32] kyosi2963
+How much dups is the most duped if i can ask 😄😄
+
+{Reactions}
+👍 
+
+[02/03/2025 18:37] francise._
+I honestly don't know 
+But a dupe can be really bad that you get 0$
+
+
+[02/03/2025 18:38] kyosi2963
+Yeah i have experienced that 😄
+
+{Reactions}
+🤝 
+
+[02/03/2025 18:39] shiazinho
+
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/image0-5050D.gif
+
+
+[02/03/2025 18:40] 0xgondarxyz
+These were my experiment contests. Lambo.win and this one. I did them almost side by side. Got the 15th place in lambo with 230 usdc payout. Since the report is still not out, I don't know which ones were valid and which ones were not. I don't care much about the payout on this one, need to get dem knowledge.
+
+
+[02/03/2025 18:43] owenzo
+yk its almost valentines and I'm here depending on that solo high to buy someone special some chocolates and roses.
+
+{Reactions}
+😂 (21) 
+
+[02/03/2025 18:44] shiazinho
+At least you have a gf
+
+{Reactions}
+😂 (8) 
+
+[02/03/2025 18:46] francise._
+Was just about to say this lol
+
+{Reactions}
+😂 (6) 
+
+[02/04/2025 08:56] xkeywordx
+https://tenor.com/view/hugh-lowry-sorcery-shocked-surprised-omg-gif-5089740
+
+{Embed}
+https://tenor.com/view/hugh-lowry-sorcery-shocked-surprised-omg-gif-5089740
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/hugh-lowry-sorcery-4FCF6.png
+
+{Reactions}
+❤️ (2) 
+
+[02/04/2025 08:56] xkeywordx
+Wait .... you mean SRs can also have a personal life?
+
+{Reactions}
+😂 (7) 
+
+[02/04/2025 14:26] darklordofthefallennight
+No that's just a myth
+
+
+[02/04/2025 14:51] lamsya
+what is the meaning of PJQA?
+can anyone explain?
+
+
+[02/04/2025 14:53] jvorex
+it is a period whereby a re-evaluation of submissions can be done by dialogue with the judge and other wardens as well
+
+{Reactions}
+👍 (2) 
+
+[02/04/2025 16:09] lamsya
+Is this opened to limited SR's?
+
+
+[02/04/2025 16:59] jvorex
+SR, yes
+
+{Reactions}
+👍 
+
+[02/04/2025 17:00] owenzo
+I asked her to be  my gf last month
+
+
+[02/04/2025 17:00] owenzo
+we've been friends since 9
+
+{Reactions}
+🫡 💜 (5) 🐛 
+
+[02/04/2025 17:00] jvorex
+i hope you don't only have diamond hands in relationships but do too in crypto...
+
+
+[02/04/2025 17:01] owenzo
+its been 13 good years guys and I cant blow it
+
+{Reactions}
+💯 (2) 
+
+[02/04/2025 17:01] owenzo
+I bought Xrp a few days ago and I'm persevering as we speak ser.
+
+
+[02/04/2025 17:12] rouhsamad
+If not today, then wen?
+
+
+[02/04/2025 17:42] 0xellipticcurve
+https://tenor.com/view/someday-not-tomorrow-not-today-maybe-maybe-not-today-gif-2079436630128123994
+
+{Embed}
+https://tenor.com/view/someday-not-tomorrow-not-today-maybe-maybe-not-today-gif-2079436630128123994
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/someday-not-tomorrow-9FAF1.png
+
+
+[02/04/2025 17:51] 0xsidshinchan
+https://tenor.com/view/you%27ll-get-that-someday-rich-rebuilds-you-will-eventually-get-that-gif-13577689984840453327
+
+{Embed}
+https://tenor.com/view/you%27ll-get-that-someday-rich-rebuilds-you-will-eventually-get-that-gif-13577689984840453327
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/you%2527ll-get-that-someday-rich-rebuilds-499BB.png
+
+
+[02/04/2025 18:14] 0xloscar01
+maybe the results are the friends we made along the way
+
+{Reactions}
+🥹 (10) 😂 (17) 10_10 (2) 
+
+[02/04/2025 19:09] c0pp3rscr3w3r
+hahahaha
+
+
+[02/04/2025 19:44] shiazinho
+KKKKKKKKKKKKKKKKKKKKKKKKk
+
+{Reactions}
+🇧🇷 (3) 
+
+[02/04/2025 19:59] cloudellie
+I think I speak for all C4 staff when I say we're all rooting for you :Purple_Hearts:
+
+{Reactions}
+🔥 (18) 💜 (7) 
+
+[02/05/2025 10:15] xkeywordx
+lol
+
+
+[02/05/2025 11:11] kobbyeugene
+@CloudEllie I know a judge,he is really good in divorce cases. In case of anything hala me @0xenzo_eth
+
+{Reactions}
+😂 
+
+[02/05/2025 13:14] owenzo
+thanks
+
+{Reactions}
+hi5 (2) 
+
+[02/05/2025 14:03] owenzo
+lol
+
+{Reactions}
+😂 
+
+[02/05/2025 17:20] shiazinho
+I sense rewards coming soon
+
+
+[02/05/2025 17:29] tusharr1411
+I hope it's coming soon and not another week of waiting!
+
+
+[02/05/2025 17:34] 0xastronatey
+why are you guys so impatient?
+
+
+[02/05/2025 17:38] shiazinho
+Just want to read the reports before I forget everything
+
+
+[02/05/2025 17:40] tusharr1411
+happens when it's your first contest !
+
+{Reactions}
+❤️ (2) 
+
+[02/05/2025 17:42] 0xastronatey
+reality is that most won’t even end up with a valid finding
+
+{Reactions}
+👍 (3) 💀 
+
+[02/05/2025 17:52] tusharr1411
+I'm sure the impatient ones are the ones sitting with some valids...
+
+{Reactions}
+👍 (4) 
+
+[02/05/2025 18:29] rouhsamad
+PJQA ended?
+
+
+[02/05/2025 18:29] rouhsamad
+Or still going
+
+
+[02/05/2025 19:40] darklordofthefallennight
+the critical valids that are worth thousands
+
+
+[02/05/2025 22:19] takarez
+ended,  result probably sooon.
+
+{Reactions}
+🔥 (21) 
+
+[02/06/2025 03:24] 0xekkoo
+How many total findings?
+
+{Reactions}
+👀 (3) ❓ 
+
+[02/06/2025 09:50] francise._
+Don't think he's allowed to reveal that.. since pjqa is over, any moment from now, results can drop
+
+
+[02/06/2025 09:57] kobbyeugene
+You mean another month?👀
+
+{Reactions}
+😂 (10) 
+
+[02/06/2025 09:58] francise._
+Nahh I think from now till the next 3-4 days
+
+
+[02/06/2025 10:34] saurabh_0312
+waiting for my valid bugs
+
+
+[02/06/2025 10:42] chaos304
+don't jinx it 😂
+
+{Reactions}
+😂 (4) 
+
+[02/06/2025 10:55] kobbyeugene
+https://tenor.com/view/rentner-gif-3327801638773445463
+
+{Embed}
+https://tenor.com/view/rentner-gif-3327801638773445463
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/rentner-70AA0.png
+
+{Reactions}
+😂 (8) ⏳ (8) 
+
+[02/07/2025 17:16] rouhsamad
+Should we wait till next week?
+
+
+[02/07/2025 18:22] kobbyeugene
+1 more month 🙂
+
+{Reactions}
+🤯 (2) 
+
+[02/07/2025 18:32] chupinexx
+https://tenor.com/view/osita-osita-iheme-nigerian-nollywood-calculating-gif-16142281
+
+{Embed}
+https://tenor.com/view/osita-osita-iheme-nigerian-nollywood-calculating-gif-16142281
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/osita-osita-iheme-A954D.png
+
+{Reactions}
+😂 
+
+[02/07/2025 18:34] kobbyeugene
+https://tenor.com/view/kalki-prabhas-kalki2898ad-just-wait-wait-a-minute-gif-1055895923668241
+
+{Embed}
+https://tenor.com/view/kalki-prabhas-kalki2898ad-just-wait-wait-a-minute-gif-1055895923668241
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/kalki-prabhas-17470.png
+
+
+[02/07/2025 18:39] thebrittfactor
+🤑 🎉  Awards for **SecondSwap**:
+
+$8,836.42 USDC » @BenRai
+$3,836.65 USDC » @KupiaSec
+$2,653.64 USDC » @sl1
+$2,530.96 USDC » @gesha17
+$1,041.22 USDC » @0xNirix
+$1,036.22 USDC » @Shubham
+$891.74 USDC » @ABAIKUNANBAEV
+$763.43 USDC » EPSec (@0x539.eth | ChainDefenders and @petarP1998)
+$726.08 USDC » @0xrex
+$571.64 USDC » @oualidpro
+$526.84 USDC » @0xAkira
+$461.44 USDC » NexusAudits (@cheatc0d3 and @zxnnx)
+$455.82 USDC » @seerether
+$451.68 USDC » @aua_oo7
+$378.95 USDC » @0xSlowbug
+$377.17 USDC » @franfran20
+$287.95 USDC » @0xLasadie
+$204.91 USDC » @rsam_eth
+$189.06 USDC » ChainProof (@Yas000X and @takarez)
+$179.02 USDC » @Attention
+$162.37 USDC » @0xStalin
+$161.00 USDC » BugPull (@Hunter and @Mostafa)
+$136.58 USDC » @trtrth
+$113.34 USDC » @TheSchnilch
+$103.89 USDC » TheKhans (@aman and @0xasad97)
+$103.86 USDC » @typicalHuman
+$101.05 USDC » @0xhuh2005
+$101.05 USDC » @0xfalconHoof
+$97.70 USDC » @Bigsam
+$91.46 USDC » @dhank
+$90.02 USDC » @Rhaydden
+$87.18 USDC » @0xpetern
+$80.31 USDC » @zanderbyte
+$79.44 USDC » @Spurious Dragon
+$79.30 USDC » @foufrix
+$75.99 USDC » @farismaulana
+$75.57 USDC » @BajagaSec
+$75.16 USDC » @knight1
+$75.16 USDC » @Bryan_Conquer
+$75.16 USDC » @Taiger
+$75.16 USDC » @Benterkiii
+$75.16 USDC » hubble (@ksk2345 and @shri4net)
+$60.42 USDC » @montecristo
+$60.00 USDC » @Drynooo
+
+
+[02/07/2025 18:39] thebrittfactor
+$57.64 USDC » @The Fabled
+$57.64 USDC » @h0lk0()
+$56.81 USDC » @Ryonen
+$56.78 USDC » @SmartAuditPro
+$8.42 USDC » @Victor
+$7.47 USDC » @Pulse
+$7.09 USDC » @Yuza101
+$6.98 USDC » @Artur
+$6.98 USDC » @Agontuk
+$6.95 USDC » @jsonDoge
+$6.95 USDC » @0xEkkoo
+$5.38 USDC » @0xloscar01
+$5.38 USDC » @Sabit
+$5.11 USDC » @PCProdigy
+$4.77 USDC » @fyamf
+$4.66 USDC » @peanuts
+$4.66 USDC » @!Kann
+$4.52 USDC » @shaflow2
+$4.31 USDC » @Abhan1041
+$4.31 USDC » @rspadi
+$4.28 USDC » @moto
+$4.28 USDC » @0xDemon
+$4.28 USDC » @m4k2
+$4.28 USDC » @0xGondar
+$4.28 USDC » @boredpukar
+$4.17 USDC » @y0ng0p3
+$4.17 USDC » @nslavchev
+$4.14 USDC » @web3km
+$4.14 USDC » @jkk812812
+$4.14 USDC » @anchabadze
+$4.14 USDC » @kyosi
+$4.14 USDC » @0xgremlincat
+$4.14 USDC » @0xaudron
+$4.14 USDC » @0x4rdiii
+$4.02 USDC » @itsabinashb
+$4.02 USDC » @AshishLach
+$3.64 USDC » @zzebra83
+$3.64 USDC » @agadzhalov
+$3.22 USDC » @wickie
+$2.81 USDC » 056Security (@0xb0k0 and @stanchev)
+$2.81 USDC » @nikhil840096
+$2.81 USDC » @saurabh_0312
+$2.81 USDC » @𝚌𝚑𝚞𝚙𝚒𝚗𝚎𝚡𝚡
+$2.81 USDC » @escrow
+$2.81 USDC » @ka14ar
+$2.81 USDC » @parishill24
+$2.81 USDC » @SamuelTroyDomi
+$2.81 USDC » @Z3RO
+$2.81 USDC » EaglesSecurity (@kane-goldmisth and @julian_avantgarde)
+
+
+[02/07/2025 18:40] thebrittfactor
+$2.81 USDC » @nitinaimshigh
+$2.81 USDC » @IzuMan
+$2.81 USDC » @Fon
+$2.81 USDC » @Viquetour
+$2.81 USDC » @codertjay
+$2.81 USDC » @KiteWeb3
+$1.21 USDC » @T0
+$1.21 USDC » @0xAstronatey
+$1.21 USDC » @Olamilekan
+$0.86 USDC » @c0pp3rscr3w3r
+$0.86 USDC » @ChainSentry
+$0.83 USDC » @trailongoswami
+$0.83 USDC » @Iconoke
+$0.83 USDC » @the_code_doctor
+$0.83 USDC » @X0sauce
+$0.83 USDC » @mrMorningstar
+$0.83 USDC » @safie
+$0.83 USDC » @CrazyMoose
+$0.83 USDC » @darklordofthefallennight
+$0.41 USDC » @DanielArmstrong
+$0.41 USDC » @checks
+$0.38 USDC » @4rk4rk
+$0.38 USDC » @tusharr1411
+$0.38 USDC » @alternato7368
+$0.38 USDC » @Bin
+$0.38 USDC » @Abdessamed
+$0.38 USDC » @lightoasis
+$0.38 USDC » @Bloqarl
+$0.38 USDC » @kk
+$0.38 USDC » @0xpsb
+$0.38 USDC » @pontifex
+$0.38 USDC » @Fitro
+$0.38 USDC » @0x0
+$0.03 USDC » @rampage_audit
+$0.03 USDC » @YouCrossTheLineAlfie
+$0.03 USDC » @kapten.crtz
+$0.03 USDC » @Uddercover
+$0.03 USDC » @elvin-a-block
+$0.03 USDC » @Gosho
+$0.03 USDC » @0xlucky45
+$0.03 USDC » @smbv-1923
+$0.03 USDC » @Newspace
+$0.03 USDC » @Augustine
+$0.03 USDC » @DharkArtz
+$0.03 USDC » @Gaurav_u
+$0.03 USDC » @xKeywordx
+$0.03 USDC » @...
+$0.03 USDC » @JustUzair
+$0.03 USDC » @lohaclohell
+$0.03 USDC » @Lamsya
+
+🏁 Findings summary
+--------------------------------------
+
+{Reactions}
+🔥 
+
+[02/07/2025 18:40] thebrittfactor
+3 High risk findings
+20 Med risk findings
+294 wardens contributed
+
+Top Hunter: BenRai
+Top Gatherer: KupiaSec
+Top QA report: oualidpro
+
+Awards will be distributed on Polygon within the next week. Congratulations all!  💸 💸 💸
+
+⚠️ Awardees, be sure to [complete your tax reporting info](https://docs.code4rena.com/awarding/incentive-model-and-awards/awarding-process#tax-information-for-code4rena-contributors-wardens-judges-etc) if you haven't already. This must be completed within 30 days (i.e. before Monday, 10 March 2025) to receive your award distribution for this audit.
+
+The leaderboard will be updated at a later date with these audit results. 
+
+*Note: If you participated in this audit and don’t see your name on this list, please wait until the report is published and the findings repo is made public to check on your submissions.*
+
+{Reactions}
+👌 (6) 
+
+[02/07/2025 18:41] 0xsl1
+congrats @BenRai, well deserved 👏
+
+{Reactions}
+🔥 (2) 
+
+[02/07/2025 18:42] dot_cloud
+finally
+
+
+[02/07/2025 18:42] dot_cloud
+congrats everyone!
+
+
+[02/07/2025 18:43] 0xaudron
+congrats to all🔥
+
+
+[02/07/2025 18:45] chaos304
+congrats! well now I gotta read the findings
+they don't become public right away right
+
+
+[02/07/2025 18:46] francise._
+Congratulations @BenRai
+
+{Reactions}
+🙏 
+
+[02/07/2025 18:50] 0xaudron
+within 4-7 days , i believe!
+
+
+[02/07/2025 18:50] chaos304
+ah cool thank you!
+
+
+[02/07/2025 19:13] saurabh_0312
+what is that yellow part in the name of reward people list
+
+
+[02/07/2025 19:13] owenzo
+didnt bag anything
+
+
+[02/07/2025 19:13] owenzo
+not even the solo high.
+
+
+[02/07/2025 19:14] owenzo
+I'm going to sleep
+
+
+[02/07/2025 19:15] owenzo
+good night guys
+
+{Reactions}
+❤️ (7) 😹 
+
+[02/07/2025 19:15] tusharr1411
+you're tagged in that message
+
+
+[02/07/2025 19:15] profsaz
+Congrats everyone.... @CloudEllie with this new rule of limiting submissions to 10 for each users with this kind of vulnerabilities it would be unfair to limited members.... just my thoughts 🫡
+
+
+[02/07/2025 19:15] saurabh_0312
+ok ok
+
+
+[02/07/2025 19:26] francise._
+It be like that sometimes, it sucks
+I didn't bag a single dime in Lambo
+I know, trust me
+
+Just keep going and I'm sure you would eventually!
+
+{Reactions}
+🔥 (2) 
+
+[02/07/2025 19:27] benrai
+Thanks! Congrats on top3!
+
+{Reactions}
+🙏 
+
+[02/07/2025 19:32] shiazinho
+@CloudEllie do all wardens with validated submissions appear in this list?
+
+
+[02/07/2025 19:37] dot_cloud
+check the note part
+
+
+[02/07/2025 19:38] shiazinho
+I know
+
+
+[02/07/2025 20:07] kobbyeugene
+😂😂😂😂 yapping about when it's it's gonna be released and not bagging anything is really painful 💔
+
+{Reactions}
+😂 (5) 
+
+[02/07/2025 20:45] lohaclohell
+I'm gonna pay for poly gas with my 0.03 😆
+
+
+[02/07/2025 21:01] bryan_conquer
+To another win again, congratulations everyone..
+
+{Reactions}
+🔥 
+
+[02/07/2025 21:24] anchabadze
+congrats to everyone
+
+
+[02/07/2025 21:24] anchabadze
+this is my first web3 security payout!
+
+{Reactions}
+🔥 (7) 
+
+[02/07/2025 21:25] anchabadze
+very excited!
+
+
+[02/07/2025 21:53] 0xslowbug
+Congrats @BenRai
+
+{Reactions}
+🙏 
+
+[02/07/2025 21:54] 0xslowbug
+Congratulations more to come.
+
+
+[02/08/2025 02:05] unpluggedtj
++ 1
+
+
+[02/08/2025 03:00] saurabh_0312
+how will i get to know , how many bugs of mine are valid
+
+
+[02/08/2025 03:52] owenzo
+you just sparked a revenge arc in me. In the next few months you shall be one of those people who will congratulate me. MARK MY WORDS⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️
+
+{Reactions}
+👍 (9) 🫡 (3) 🔥 (3) 
+
+[02/08/2025 04:00] z3nithpu1se
+I support you brother. We shall avenge it
+
+{Reactions}
+🔥 (2) 
+
+[02/08/2025 05:35] hxl.888
+keep grinding!
+
+
+[02/08/2025 08:31] mtberi
+Congrats @Pulse
+
+
+[02/08/2025 09:41] ritik2784
+in my findings section, there is a tag called `edited by warden` can I know what it mean or what things have been edited in my finding
+
+
+[02/08/2025 09:43] mrfalsegenius
+It means you edited your finding after submitting it
+
+{Reactions}
+❤️ 
+
+[02/08/2025 10:49] kobbyeugene
+I will man...
+I didn't bag anything myself and I'm coming for revenge myself 💀  
+See you on the other side
+
+
+[02/08/2025 10:52] mrfalsegenius
+https://tenor.com/view/dwight-theoffice-normal-revenge-gif-10094262
+
+{Embed}
+https://tenor.com/view/dwight-theoffice-normal-revenge-gif-10094262
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/dwight-theoffice-30D47.png
+
+
+[02/08/2025 10:55] kobbyeugene
+https://tenor.com/view/heat-heat-movie-chris-chris-shiherlis-bank-robbery-gif-16400995593055990768
+
+{Embed}
+https://tenor.com/view/heat-heat-movie-chris-chris-shiherlis-bank-robbery-gif-16400995593055990768
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/heat-heat-movie-3FC01.png
+
+
+[02/08/2025 11:01] mrfalsegenius
+https://tenor.com/view/samurai-champloo-katana-sword-preparing-gif-10886489
+
+{Embed}
+https://tenor.com/view/samurai-champloo-katana-sword-preparing-gif-10886489
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/samurai-champloo-180F1.png
+
+{Reactions}
+🔥 (3) 
+
+[02/08/2025 12:34] pulse0452
+Thanks
+
+
+[02/08/2025 15:54] bigbape
+Is there a place we can see why a submission was not accepted?
+
+
+[02/09/2025 16:14] nem0thefinder
+where's the final report ?
+
+
+[02/09/2025 17:56] benterkiii
+Report in progress
+
+
+[02/11/2025 17:02] deeney3866
+Ok
+
+
+[02/12/2025 03:14] saurabh_0312
+when will be the final report come out
+
+{Reactions}
+👍 
+
+[02/12/2025 03:15] saurabh_0312
+when the finding section for code4rean will be updated
+
+
+[02/12/2025 10:30] benterkiii
+2026
+
+{Reactions}
+🤣 (5) 🥲 (2) 
+
+[02/12/2025 18:14] benterkiii
+when the reward distribution ?
+
+
+[02/12/2025 18:23] itsmetechjay
+Awards are sent in two batches, which are dependent on when tax info is submitted.  The first batch has been sent.  If you recently submitted your tax info, you'll be included in the second batch that occurs ~30 days after awards are announced.
+
+
+[02/12/2025 18:36] benterkiii
+didn't receive anything, so it will be around the 7th of march!
+
+
+[02/14/2025 02:31] tobi0x18
+@Jay | C4 When does the C4 team update `findings.csv` for this contest?
+
+
+[02/14/2025 02:33] tobi0x18
+
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/image-59697.png
+
+
+[02/14/2025 20:43] itsmetechjay
+If you are referring to the leaderboard, we are working on some updates and hope to get that populated soon.
+
+
+[02/15/2025 01:07] tobi0x18
+Thanks for reply.
+I am not referring to the leaderboard.
+The result of this contest came out, so I want to inspect it by checking the reward of each finding, the number of dups as shown below.
+
+
+[02/15/2025 01:08] tobi0x18
+
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/image-FE8CE.png
+
+{Reactions}
+👍 (2) 
+
+[02/15/2025 01:10] tobi0x18
+The contest ID of `secondSwap` is 462 and it is not updated yet. It would be great if you update this `findings.csv` asap.
+I think handling this is very easy as the result is came out already.
+
+{Reactions}
+👍 
+
+[02/19/2025 19:32] kiteweb3
+@Jay | C4 how can I understand if a submission was accepted? Is the star near the number? Sorry, if I'm asking. It's my first time here. Thanks in advance
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/Screenshot_2025-02-19_alle_20.27.57-F49F2.png
+
+{Reactions}
+🧵 (2) 
+
+[02/20/2025 11:12] princekay145
+only SR have access to the `findings.csv`?
+
+
+[02/20/2025 11:15] saurabh_0312
+will the finding section in code4rena website update after some time with my valid findings ???
+
+
+[02/20/2025 12:36] dot_cloud
+hello @Jay | C4 I believe my finding is wrongly duped? where can I submit appeal? my submission is S-353 and it should be grouped with H-03
+
+
+[02/20/2025 13:38] princekay145
+@Jay | C4
+
+
+[02/20/2025 14:07] tobi0x18
+no, as far as I know, anybody can see it.
+
+
+[02/20/2025 14:07] tobi0x18
+https://docs.code4rena.com/awarding/incentive-model-and-awards/awarding-process#:~:text=findings.csv%3A%20valid,%3A%20Code4rena%20audits
+
+{Embed}
+https://docs.code4rena.com/awarding/incentive-model-and-awards/awarding-process
+Awarding process | Code4rena
+This is a high level overview of the C4 awarding process.
+
+
+[02/20/2025 14:21] princekay145
+thank you
+
+
+[02/20/2025 16:16] itsmetechjay
+Unfortunately, decisions are final per our [fairness and validity doc](https://docs.code4rena.com/awarding/fairness-and-validity#if-you-disagree-with-a-judges-decision). I encourage you to continue participating and work towards earning the SR role in order to participate in Post-judging QA so that you can raise appeals in the future before judging decisions are finalized.
+
+
+[02/20/2025 16:20] dot_cloud
+💀  so my reward is lost
+is it possible to at least fix the final report for correct dup? and my rank also? just add virtual $ I should have from that wrong dup to reflect on the ranking/profiles
+
+
+[02/20/2025 16:26] itsmetechjay
+I understand your disappointment, but as the audit went through an extensive post-judging QA period, and the decisions have been finalized, no updates to the report/leaderboard will be made at this time.
+
+
+[02/20/2025 17:28] unpluggedtj
+Sucks mate, let’s work for SR role 🫡
+
+
+[02/20/2025 17:39] dot_cloud
+grab those SR role so you can atleast check if your valid issue correctly categorized :4739_Skeletor:
+
+
+[02/20/2025 19:49] kiteweb3
+Same happened to me. Grouped with a medium that doesn't match mine. Sad, but it is what it is. We will work for the SR role.💪 P.s Can you please send me the link to the H3? I can't find it in the report.
+
+
+[02/21/2025 00:44] dot_cloud
+sad ser 🥲 
+the H-03 is after the mitigation part of H-02
+should check carefully because the formatting is skewed
+
+{Reactions}
+👍 
+
+[02/23/2025 22:06] samueltroydomi
+Can someone help me understand the scoring / payout. I have a valid High and Medium but was awarded 0 for the High and 2.81 for the medium. Im not complaining i am just looking to understand how and why?
+
+
+[02/23/2025 22:50] deeney3866
+If your findings are heavily duplicated, it can result in less payout.
+
+
+[02/24/2025 11:16] xkeywordx
+if you don't have access to the SR role and the report is not public yet, how do you know what finding should your finding be grouped with? Is there a way to fetch the final findings that will be in the report?
+
+
+[02/24/2025 11:23] dot_cloud
+yes the final report already published
+
+
+[02/24/2025 11:23] xkeywordx
+Oh, I missed thsy
+
+
+[02/25/2025 17:51] 0xaman.
+@Jay | C4 what is legitimate way to ask for clarification  that a  issue from other warden  is accepted but the exact  issue of mine was duplicated with other group , the accepted one is solo finding ?
+
+
+[02/26/2025 15:10] thebrittfactor
+Unfortunately, decisions are final per our [fairness and validity doc](https://docs.code4rena.com/awarding/fairness-and-validity#if-you-disagree-with-a-judges-decision). I encourage you to continue participating and work towards earning the SR role in order to participate in Post-judging QA so that you can raise concerns in the future before judging decisions are finalized.
+
+{Reactions}
+👍 
+
+[02/27/2025 15:54] frkln
+Hi @thebrittfactor | C4 - Away I believe my submission is mistakenly grouped into another duplicate finding.
+https://code4rena.com/audits/2024-12-secondswap/submissions/S-534 shouldn't it be grouped with H03?
+
+{Embed}
+https://code4rena.com/audits/2024-12-secondswap/submissions/S-534
+Submission S-534 | SecondSwap | Code4rena
+Code4rena is a competitive audit platform that finds more high-severity vulnerabilities, more quickly than any other auditing method.
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/c4-og-v2-64B78.png
+
+{Reactions}
+👍 
+
+[02/27/2025 17:21] dian.ivanov
+@4rk4rk  I have completely the same issue, my bug was mistakenly grouped with H-02 instead of H-03, even the name of my submission is almost the same like the bug chosen for the report.
+
+@thebrittfactor | C4 - Away  what is the right approach in such cases ?
+
+https://code4rena.com/audits/2024-12-secondswap/submissions/S-1089
+
+{Embed}
+https://code4rena.com/audits/2024-12-secondswap/submissions/S-1089
+Submission S-1089 | SecondSwap | Code4rena
+Code4rena is a competitive audit platform that finds more high-severity vulnerabilities, more quickly than any other auditing method.
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/c4-og-v2-64B78.png
+
+{Reactions}
+👍 
+
+[02/27/2025 18:47] julian.avantgarde
+Same situation here:
+https://code4rena.com/audits/2024-12-secondswap/submissions/S-438
+
+The finding is grouped to h-2 instead of h-3. 
+@thebrittfactor | C4 - Away fyi
+
+{Embed}
+https://code4rena.com/audits/2024-12-secondswap/submissions/S-438
+Submission S-438 | SecondSwap | Code4rena
+Code4rena is a competitive audit platform that finds more high-severity vulnerabilities, more quickly than any other auditing method.
+Code4rena - ARCHIVE-PUBLIC - secondswap-dec [1299446629652365362].txt_Files/c4-og-v2-64B78.png
+
+
+[02/28/2025 17:40] thebrittfactor
+Unfortunately, [judge decisions are final](https://docs.code4rena.com/awarding/fairness-and-validity#if-you-disagree-with-a-judges-decision). Please continue participating to earn the SR role in order to participate in Post-judging QA so that you can raise concerns in the future before judging decisions are finalized.
+
+{Reactions}
+🙏 
+
+[02/28/2025 19:41] julian.avantgarde
+@bob could you please check your DM? Thanks 🙂
+
+
+[03/03/2025 14:55] stormprod
+when will be the second batch of rewards be distributed?
+
+
+[03/03/2025 17:36] thebrittfactor
+Typically the second batch is sent within a week of the tax deadline in the awarding announcement here: https://discord.com/channels/810916927919620096/1299446629652365362/1337493177552212059
+
+
+[03/03/2025 17:56] stormprod
+Hey but I didn't recieve any reward for my submission yet
+
+
+[03/03/2025 21:26] stormprod
+Can I know if rewards are yet to be distributed as my Tax Information is also accepted. I didn't recieve anything.
+
+{Reactions}
+🧵 
+
+[03/06/2025 00:34] zmj4107
+@thebrittfactor | C4 - Away can i DM you, about the sencondswap reward
+
+
+[03/06/2025 00:44] itsmetechjay
+You'll get a faster response through the [Help Desk](https://code4rena.com/help), which is staffed by several members of staff.
+
+
+[03/06/2025 00:45] zmj4107
+ok, thank you
+
+{Reactions}
+hi5 
+
+[03/06/2025 12:23] zmj4107
+i have submit a Help Desk request, when could i get the reply please?
+
+
+[03/06/2025 12:24] cloudellie
+We are looking into it but it may require some time to investigate.
+
+
+[03/06/2025 12:25] zmj4107
+OK, thank you for your reply.
+
+{Reactions}
+👍 
+
+[03/07/2025 00:03] itsmetechjay
+ℹ️ This channel is pending archive.   As a result, any private threads will be permanently deleted in 03/14/2025 23:01. Please make sure to grab anything you might need before then.
+
+
+[03/07/2025 11:39] dot_cloud
+so I am not the only one that have wrongly grouped issue, instead of H3 its grouped with H2 🥲
+
+
+[03/07/2025 20:57] zeroisabot
+Same here, I was surprised as well
+
+
+[03/10/2025 22:05] 0xaman.
+@Jay | C4 The rewards for wardens who KYC is just submitted before the result has distributed?
+
+
+[03/11/2025 01:15] itsmetechjay
+If you mean when the awards are sent? They are sent in two batches.  Once within a week of announcement. And another about a week after the tax deadline, so it should be within the next week.
+
+{Reactions}
+👍 
+
+[03/14/2025 10:49] oualidpro
+Same is here I didn't received my rewards even if my tax form is accepted.
+
+
+[03/14/2025 10:50] oualidpro
+@CloudEllie Can you please check ? I have created a help desk ticket too
+
+
+[03/14/2025 11:00] cloudellie
+From what I'm seeing, the final batch of awards has not yet been sent. I've nudged the finance team and there will be an announcement in #📢・c4-updates when they've been distributed.
+
+
+[03/14/2025 11:01] cloudellie
+I can confirm that your tax info has been accepted, so you're all set 👍
+
+{Reactions}
+😊 
+
+[03/14/2025 11:03] oualidpro
+thank you so much
+
+{Reactions}
+hi5 
+
+[03/14/2025 20:10] itsmetechjay
+ℹ️ Reminder: this channel will be deleted after 24 hours.
+
+
+==============================================================
+Exported 827 message(s)
+==============================================================
